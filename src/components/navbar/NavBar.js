@@ -1,4 +1,6 @@
 import "./NavBar.css";
+import CartWidget from '../CartWidget/CartWidget';
+
 
 export default function NavBar() {
   return (
@@ -10,7 +12,7 @@ export default function NavBar() {
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
+        <div className="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item mx-3">
               <a className="nav-link text-white" href="./index.html">
@@ -45,6 +47,7 @@ export default function NavBar() {
           </ul>
         </div>
       </div>
+      <CartWidget />
     </nav>
   );
 }
