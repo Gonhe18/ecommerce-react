@@ -1,0 +1,28 @@
+.cart-btn {
+  position: relative;
+  width: 100px;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-icon .fa-shopping-cart {
+  margin-right: 15px;
+  font-size: 2rem;
+  display: flex;
+  justify-content: end;
+  color: orange;
+}
+
+.cart-items {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  background: #fff;
+  padding: 0 5px;
+  border-radius: 30%;
+  color: #000;
+  font-weight: bold;
+}
