@@ -1,13 +1,17 @@
-.navbar{
-  background-color:#1A1A40;
+.navbarPrincipal {
+  background-color: #1a1a40;
 }
-.navbar-brand{
+
+.navbarTitulo h1 {
   font-size: 2rem;
   font-weight: bold;
+  padding: 0 20px;
+  margin: 0;
 }
-.nav-link{
-  font-size: 1.1rem;
-}
-.bandera{
+.bandera {
   color: aqua;
+}
+.navbarCat {
+  font-size: 1.1rem;
+  font-weight: bold;
 }
