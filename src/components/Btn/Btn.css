@@ -1,0 +1,8 @@
+.btn-item {
+  width: 45%;
+}
+.btn-item button {
+  width: 100%;
+  color: #24b1ce;
+  font-weight: bold;
+}
