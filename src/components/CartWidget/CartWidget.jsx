@@ -1,4 +1,4 @@
-import './CartWidget.css'
+import "./CartWidget.css";
 import { RiShoppingCartFill } from "react-icons/ri";
 
 export default function CartWidget() {
@@ -6,7 +6,7 @@ export default function CartWidget() {
     <>
       <div className="cart-btn">
         <span className="nav-icon">
-        <RiShoppingCartFill/>
+          <RiShoppingCartFill />
         </span>
         <div className="cart-items">0</div>
       </div>

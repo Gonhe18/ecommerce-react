@@ -1,9 +1,13 @@
-import './ItemListContainer.css'
+import "./ItemListContainer.css";
+import ItemList from "../ItemList/ItemList";
 
-export default function ItemListContainer({title}) {
-  return(
-    <div className="titulo">
-      <h1>{title}</h1>
-    </div>  
+export default function ItemListContainer({ title }) {
+  return (
+    <>
+      <div className="my-3">
+        <h1 className="titulo">{title}</h1>
+      </div>
+      <ItemList />
+    </>
   );
 }
