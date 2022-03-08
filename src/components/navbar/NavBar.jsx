@@ -33,7 +33,7 @@ export default function NavBar() {
                 Notebooks
               </Nav.Link>
             </Nav>
-            <CartWidget />
+            <CartWidget/>
           </Navbar.Collapse>
         </Container>
       </Navbar>
