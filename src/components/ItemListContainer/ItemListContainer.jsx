@@ -1,5 +1,6 @@
 import "./ItemListContainer.css";
-import ItemList from "../ItemList/ItemList";
+import ItemList from './../ItemList/ItemList';
+
 
 export default function ItemListContainer({ title }) {
   return (

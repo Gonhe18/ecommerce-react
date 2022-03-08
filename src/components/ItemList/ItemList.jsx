@@ -1,8 +1,7 @@
 import "./ItemList.css";
-
 import { useState, useEffect } from "react";
-import Item from "../Item/Item";
 import PropagateLoader from "react-spinners/PropagateLoader";
+import Item from "./../Item/Item";
 
 export default function ItemList() {
   const [productos, setProductos] = useState([]);
@@ -27,7 +26,7 @@ export default function ItemList() {
       ) : (
         <div className="cardProd">
           {productos.map((prod) => (
-            <Item product={prod} />
+            <Item product={prod} key={prod.id} />
           ))}
         </div>
       )}
