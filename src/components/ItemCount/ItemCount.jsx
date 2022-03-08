@@ -1,10 +1,10 @@
 import "./ItemCount.css";
 import { BsDashLg, BsPlusLg } from "react-icons/bs";
-
 import { useState } from "react";
 import Btn from "../Btn/Btn";
 
 export default function ItemCount({ cantProd }) {
+
   const [contador, setContador] = useState(0);
 
   const clickAumentar = () => {

@@ -1,7 +1,7 @@
 import "./Item.css";
-import ItemCount from "../ItemCount/ItemCount";
+import ItemCount from "./../ItemCount/ItemCount";
 
-export default function Card({ product }) {
+export default function Item({ product }) {
   return (
     <>
       <article className="product-card" key={product.id}>
