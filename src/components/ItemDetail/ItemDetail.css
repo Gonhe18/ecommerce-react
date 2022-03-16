@@ -1,0 +1,51 @@
+.cardItem {
+  width: 90%;
+  margin: 10px auto;
+  padding: 20px 0;
+  border-radius: 10px;
+  box-shadow: 2px 4px 10px black;
+}
+.contenidoCard{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  height: 500px;
+}
+
+.imgCard{
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+.prodImg{
+  height: 100%;
+}
+
+.bloqueContenedor{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+}
+.titContenedor{
+  height: 30%;
+  font-size: 2.5rem;
+}
+.bloqueContador{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content:center;
+}
+
+.bloqueContador h4{
+  width: 40%;
+  font-size: 2rem;
+}
