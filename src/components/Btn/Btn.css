@@ -1,5 +1,6 @@
 .btn-item {
-  width: 45%;
+  width: 100%;
+  margin: auto;
 }
 .btn-item button {
   width: 100%;

@@ -1,42 +1,83 @@
-import "./NavBar.css";
 import CartWidget from "../CartWidget/CartWidget";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
+import { NavLink } from "react-router-dom";
+
+import "./NavBar.css";
 
 export default function NavBar() {
   return (
     <>
-      <Navbar className="navbarPrincipal" collapseOnSelect expand="lg" variant="dark">
-        <Navbar.Brand className="navbarTitulo" href="./index.html">
+      <Navbar
+        className="navbarPrincipal"
+        collapseOnSelect
+        expand="lg"
+        variant="dark"
+      >
+        <NavLink className="navbarTitulo" to="/">
           <h1>
-            Vice<span className="bandera">A</span>R<span className="bandera">G</span>
+            Vice<span className="bandera">A</span>R
+            <span className="bandera">G</span>
           </h1>
-        </Navbar.Brand>
-        <Container>
+        </NavLink>
+
+        <Container className="cont">
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="m-auto">
-              <Nav.Link className="px-4 navbarCat" href="./index.html">
-                Teclados
-              </Nav.Link>
-              <Nav.Link className="px-4 navbarCat" href="./index.html">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "active px-4 navbarCat" : " px-4 navbarCat"
+                }
+                to="categorias/teclado"
+              >
+                Teclado
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "active px-4 navbarCat" : " px-4 navbarCat"
+                }
+                to="categorias/mouse"
+              >
                 Mouse
-              </Nav.Link>
-              <Nav.Link className="px-4 navbarCat" href="./index.html">
-                Auriculares
-              </Nav.Link>
-              <Nav.Link className="px-4 navbarCat" href="./index.html">
-                Monitores
-              </Nav.Link>
-              <Nav.Link className="px-4 navbarCat" href="./index.html">
-                Notebooks
-              </Nav.Link>
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "active px-4 navbarCat" : " px-4 navbarCat"
+                }
+                to="categorias/auricular"
+              >
+                Auricular
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "active px-4 navbarCat" : " px-4 navbarCat"
+                }
+                to="categorias/monitor"
+              >
+                Monitor
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "active px-4 navbarCat" : " px-4 navbarCat"
+                }
+                to="categorias/notebook"
+              >
+                Notebook
+              </NavLink>
             </Nav>
-            <CartWidget />
+            <NavLink
+              to="cart"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              <CartWidget />
+            </NavLink>
           </Navbar.Collapse>
         </Container>
       </Navbar>
     </>
   );
 }
+
+// "px-4 navbarCat"

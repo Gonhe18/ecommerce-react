@@ -14,4 +14,9 @@
 .navbarCat {
   font-size: 1.1rem;
   font-weight: bold;
+  padding: 5px;
+}
+
+.active{
+  background-color: rgba(0, 255, 255, 0.205);
 }

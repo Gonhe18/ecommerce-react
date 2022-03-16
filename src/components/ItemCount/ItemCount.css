@@ -2,18 +2,19 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  flex-flow: row;
-  width: 100%;
-  height: 100%;
+  flex-direction: column;
+  width: 50%;
+  padding:10px;
 }
 .contador {
-  width: 45%;
+  width: 100%;
   padding: 3px;
   border: 1px solid #807c7c;
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  margin-bottom: 15px;
 }
 .contador:hover{
   background-color: #c2c0c07a;

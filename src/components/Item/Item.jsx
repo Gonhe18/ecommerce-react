@@ -1,10 +1,11 @@
+import Btn from './../Btn/Btn';
+
 import "./Item.css";
-import ItemCount from "./../ItemCount/ItemCount";
 
 export default function Item({ product }) {
   return (
     <>
-      <article className="product-card" key={product.id}>
+      <article className="product-card">
         <div className="img-contenedor">
           <img src={product.img} alt="Producto" className="prod-img" />
         </div>
@@ -13,7 +14,7 @@ export default function Item({ product }) {
             {product.marca} {product.modelo}
           </h3>
           <h4>${product.precio}</h4>
-          <ItemCount cantProd={product.stock} />
+          <Btn msjCount="Ver más" />
         </div>
       </article>
     </>
