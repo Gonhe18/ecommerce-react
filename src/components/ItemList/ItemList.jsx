@@ -1,9 +1,12 @@
-import "./ItemList.css";
 
 import Item from "./../Item/Item";
 import { Link } from "react-router-dom";
+import { useState } from 'react';
+import "./ItemList.css";
 
 export default function ItemList({ producto }) {
+  const [loading, setLoading] = useState(true);
+  
   return (
     <>
       <div className="cardProd">
