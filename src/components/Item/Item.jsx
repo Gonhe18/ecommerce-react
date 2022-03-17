@@ -14,7 +14,6 @@ export default function Item({ product }) {
             {product.marca} {product.modelo}
           </h3>
           <h4>${product.precio}</h4>
-          <Btn msjCount="Ver más" />
         </div>
       </article>
     </>

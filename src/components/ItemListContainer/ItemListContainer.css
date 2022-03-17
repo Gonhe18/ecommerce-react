@@ -1,5 +1,8 @@
 .titulo{
   text-align: center;
   font-size: 4rem;
-  padding: 10px 0
+  padding: 10px 0;
+  text-transform: capitalize;
+  font-family: 'Passion One', cursive;
+  letter-spacing: 1rem;
 }

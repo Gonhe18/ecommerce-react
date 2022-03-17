@@ -1,11 +1,11 @@
 .cardItem {
   width: 90%;
   margin: 10px auto;
-  padding: 20px 0;
+  padding: 20px;
   border-radius: 10px;
-  box-shadow: 2px 4px 10px black;
+  box-shadow: 2px 4px 10px gray;
 }
-.contenidoCard{
+.contenidoCard {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -13,39 +13,58 @@
   height: 500px;
 }
 
-.imgCard{
+.imgCard {
   width: 100%;
+  padding: 20px;
   position: relative;
   overflow: hidden;
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
 }
-.prodImg{
-  height: 100%;
+.prodImg {
+  width: 90%;
+  height: 90%;
 }
 
-.bloqueContenedor{
+.bloqueContenedor {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items:center;
-}
-.titContenedor{
-  height: 30%;
-  font-size: 2.5rem;
-}
-.bloqueContador{
-  width: 100%;
-  height: 50%;
-  display: flex;
-  flex-flow: row wrap;
   align-items: center;
-  justify-content:center;
+  border: 1px solid #000;
+  border-radius: 10px;
+  box-shadow: 2px 4px 10px 4px black;
+}
+.bloqueContenedor .titContenedor {
+  width: 75%;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: #000;
+  font-weight: bold;
+  font-family: "Ramaraja", serif;
+  letter-spacing: 0.5rem;
+  margin-top: 10px;
+}
+.separador {
+  width: 70%;
+  border-bottom: 1px solid #000;
+}
+.bloqueContador {
+  width: 100%;
+  height: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.bloqueContador h4{
-  width: 40%;
-  font-size: 2rem;
+.bloqueContador h4 {
+  font-size: 2.5rem;
+  margin: 20px 0;
+  font-family: "Syne Mono", monospace;
 }

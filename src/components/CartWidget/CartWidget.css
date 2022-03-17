@@ -1,16 +1,14 @@
 .cart-btn {
   position: relative;
+  left: 90px;
   padding: 10px;
   cursor: pointer;
-  text-align: center;
 }
-
 .nav-icon {
   font-size: 2.4rem;
   display: flex;
   color: orange;
 }
-
 .cart-items {
   position: absolute;
   top: 0;

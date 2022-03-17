@@ -1,10 +1,11 @@
 import "./Cart.css"
 
-export default function Cart() {
+export default function Cart({title}) {
   return (
     <>
-      <div>HOla</div>
-
+      <div className="cart">
+        <h1 className="titulo">{title}</h1>
+      </div>
     </>
   );
 }

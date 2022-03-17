@@ -2,8 +2,8 @@ import "./ItemListContainer.css";
 import ItemList from "./../ItemList/ItemList";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { MoonLoader } from "react-spinners/MoonLoader";
 import { getFetch } from "../../helpers/getFetch.js";
+import { Triangle } from "react-loader-spinner";
 
 export default function ItemListContainer({ title }) {
   const [loading, setLoading] = useState(true);
@@ -11,7 +11,8 @@ export default function ItemListContainer({ title }) {
   const { categoria } = useParams();
 
   useEffect(() => {
-    // setTimeout(() => {
+    setLoading(true)
+    setTimeout(() => {
       if (categoria) {
         getFetch()
           .then((data) =>
@@ -25,21 +26,26 @@ export default function ItemListContainer({ title }) {
           .catch((error) => console.log(error))
           .finally(() => setLoading(false));
       }
-    // }, 3000);
+    }, 3000);
   }, [categoria]);
 
   return (
     <>
       <div className="my-3">
-        <h1 className="titulo">{title}</h1>
+        {categoria ? (
+          <h1 className="titulo">{categoria}</h1>
+        ) : (
+          <h1 className="titulo">{title}</h1>
+        )}
       </div>
       {loading ? (
         <div className="loadProd">
-          Cargando
-          {/* <MoonLoader color="black" /> */}
+          <Triangle color="#1a1a40" height={100} width={100} />
         </div>
       ) : (
-        <ItemList producto={productos} />
+        <>
+          <ItemList producto={productos} />
+        </>
       )}
     </>
   );
