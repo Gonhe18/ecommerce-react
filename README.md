@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+Proyecto: E-commerce con ReactJs - CoderHouse.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+En esta primera entrega he realizar gran parte de la estructura de un E-commerce. El mismo cuenta con cuatro componentes por donde se puede navegar: menú de navegación, home, detalle producto y carrito.
 
-## Available Scripts
+1-MENÚ DE NAVEGACIÓN:
+	El menú se divide en 3 secciones:
+    *Logo: contiene el nombre del E-commerce y al seleccionarlo nos redirecciona al Home.
+    *Categorías: tenemos acceso a todas las categorías creadas y nos permite navegar a cada una viendo los productos que contiene cada una.
+    *Carrito: se encuentra en proceso de creación, pero el mismo incluiría aquellos productos que agreguemos y el proceso de compra.
 
-In the project directory, you can run:
+2-HOME:
+	Muestra, mediante card, todos los productos que tenemos en nuestra API. Se detallan algunos datos como la marca, modelo y precio. En caso de haber seleccionado alguna de las categorías en el menú de navegación, se filtrará por la misma y podremos ver solo los productos que conincidan con nuestra búsqueda.
 
-### `npm start`
+3-DETALLE PRODUCTO:
+	Al seleccionar un card desde el Home nos derivará a una nueva sección, la cual contendrá la información completa del producto seleccionado (marca, modelo, precio, imagen y descripción), además de botones para aumentar/disminutir cantidad (el mismo esta atado al stock del producto) y para agregar al carrito. Desde el mismo tendremos acceso al menú de navegación, lo cual nos permite ir al Home o a alguna categoría para elegir otros productos.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+4-CARRITO:
+	Si bien aún esta por construirse, la idea es que se carguen los productos agregados mostrando detalles de los mismos, como: marca, modelo, precio y cantidad. Además se mostrará la cantidad de productos agregados y el saldo total a abonar. Cada producto agregado tendrá botones, los cuales permitirán aumentar/disminuir la cantidad agregada como así también eliminarlo directamente del carrito. Para terminar el proceso se creará un botón que nos permita simular el pago y finalización de la compra.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+DEPENDENCIAS
+	Durante el proceso de creación del sitio web utilicé algunas dependencias que me permitieron darle una mejor estética al proyecto.
+    *Bootstrap: Permite darle estilos a todo el sitio.
+    *React-icons: Brinda el acceso a librerías con iconos y así poder agregarlos a nuestra web. Ej: icono del carrito en el NavBar.
+    *React-loader-spinner: Da acceso a varios modelos de spinner, los cuales son útiles en los casos en donde exista una demora en la esperar de resultados. Ej: simulación de espera de los datos de la API.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

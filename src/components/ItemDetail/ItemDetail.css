@@ -1,11 +1,12 @@
-.cardItem {
+.contenidoCard {
   width: 90%;
+  min-height: 100vh;
   margin: 10px auto;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 2px 4px 10px gray;
+  box-shadow: 2px 4px 10px 4px rgba(0, 0, 0, 0.849);
 }
-.contenidoCard {
+.cardItem {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -33,9 +34,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #000;
   border-radius: 10px;
-  box-shadow: 2px 4px 10px 4px black;
+  box-shadow: 4px 6px 10px gray;
 }
 .bloqueContenedor .titContenedor {
   width: 75%;
@@ -67,4 +67,19 @@
   font-size: 2.5rem;
   margin: 20px 0;
   font-family: "Syne Mono", monospace;
+}
+.bloqueDescripcion {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  padding: 15px;
+  box-shadow: 2px 4px 10px gray;
+  text-align: start;
+  list-style-type: none;
+  font-weight:bold;
+  letter-spacing:0.1rem;
+  border-radius: 10px;
+}
+.bloqueDescripcion li {
+  margin-left: 35px;
 }

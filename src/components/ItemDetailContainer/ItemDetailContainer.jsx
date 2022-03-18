@@ -19,7 +19,7 @@ export default function ItemDetailContainer({ title }) {
         )
         .catch((error) => console.log(error))
         .finally(() => setLoading(false));
-    }, 3000);
+    }, 2000);
   }, [id]);
 
   return (

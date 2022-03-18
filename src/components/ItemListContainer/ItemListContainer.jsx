@@ -11,7 +11,7 @@ export default function ItemListContainer({ title }) {
   const { categoria } = useParams();
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     setTimeout(() => {
       if (categoria) {
         getFetch()
@@ -31,22 +31,22 @@ export default function ItemListContainer({ title }) {
 
   return (
     <>
-      <div className="my-3">
-        {categoria ? (
-          <h1 className="titulo">{categoria}</h1>
-        ) : (
-          <h1 className="titulo">{title}</h1>
-        )}
-      </div>
-      {loading ? (
-        <div className="loadProd">
-          <Triangle color="#1a1a40" height={100} width={100} />
+        <div className="my-3">
+          {categoria ? (
+            <h1 className="titulo">{categoria}</h1>
+          ) : (
+            <h1 className="titulo">{title}</h1>
+          )}
         </div>
-      ) : (
-        <>
-          <ItemList producto={productos} />
-        </>
-      )}
+        {loading ? (
+          <div className="loadProd">
+            <Triangle color="#1a1a40" height={100} width={100} />
+          </div>
+        ) : (
+          <>
+            <ItemList producto={productos} />
+          </>
+        )}
     </>
   );
 }

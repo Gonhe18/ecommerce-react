@@ -1,5 +1,6 @@
 .cardProd {
   width: 90vw;
+  min-height: 100vh;
   margin: 20px auto;
   max-width: 1170px;
   display: grid;
@@ -10,9 +11,4 @@
 .cardProd a{
   text-decoration: none;
 }
-.loadProd {
-  height: 50vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
