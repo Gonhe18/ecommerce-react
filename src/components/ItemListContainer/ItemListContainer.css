@@ -1,8 +1,14 @@
-.titulo{
+.titulo {
   text-align: center;
   font-size: 4rem;
   padding: 10px 0;
   text-transform: capitalize;
-  font-family: 'Passion One', cursive;
+  font-family: "Passion One", cursive;
   letter-spacing: 1rem;
+}
+.loadProd {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
 }

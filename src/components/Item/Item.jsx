@@ -1,5 +1,3 @@
-import Btn from './../Btn/Btn';
-
 import "./Item.css";
 
 export default function Item({ product }) {
