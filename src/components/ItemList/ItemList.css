@@ -1,14 +1,47 @@
 .cardProd {
-  width: 90vw;
+  width: 100%;
+  max-width: 1170px;
   min-height: 100vh;
   margin: 20px auto;
-  max-width: 1170px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   column-gap: 2rem;
   row-gap: 2rem;
 }
-.cardProd a{
+.cardProd a {
   text-decoration: none;
 }
 
+@media screen and (max-width: 560px) {
+  .cardProd {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cardProd a {
+    width: 85%;
+  }
+}
+@media screen and (min-width: 560.5px) and (max-width: 920px) {
+  .cardProd {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cardProd a {
+    width: 85%;
+  }
+}
+
+@media screen and (min-width: 920.5px) and (max-width: 1220px) {
+  .cardProd {
+    width: 90%;
+    column-gap: 0;
+    row-gap: 0;
+  }
+  .cardProd a {
+    margin: 10px;
+  }
+}

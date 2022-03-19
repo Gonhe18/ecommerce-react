@@ -5,6 +5,7 @@
   flex-direction: column;
   width: 50%;
   padding:10px;
+  margin-bottom: 10px;
 }
 .contador {
   width: 100%;
@@ -35,4 +36,15 @@
 .contadorItem {
   font-size: 1.3rem;
   font-weight: bold;
+}
+
+@media screen and (max-width:560px){
+  .contador-Item {
+    width: 90%;
+  }
+}
+@media screen and (min-width: 560.5px) and (max-width: 920px){
+  .contador-Item {
+    width: 60%;
+  }
 }

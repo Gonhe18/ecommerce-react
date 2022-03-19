@@ -23,8 +23,8 @@ export default function ItemDetail({ prod }) {
             </div>
           </div>
           <div className="bloqueDescripcion">
-            {prod.descripcion.map((prod) => (
-              <li>{prod}</li>
+            {prod.descripcion.map((product, index) => (
+              <li key={index}>{product}</li>
             ))}
           </div>
         </article>

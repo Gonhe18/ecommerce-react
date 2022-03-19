@@ -1,4 +1,5 @@
 .product-card {
+  width: 100%;
   padding: 20px 0;
   border-radius: 10px;
   box-shadow: 2px 4px 10px black;
@@ -41,7 +42,7 @@
   padding: 10px;
   letter-spacing: 0.2rem;
   color: #000;
-  font-family: 'Ramaraja', serif;
+  font-family: "Ramaraja", serif;
 }
 .tit-contenedor h4 {
   width: 100%;
@@ -50,5 +51,28 @@
   color: black;
   font-size: 2rem;
   font-weight: bold;
-  font-family: 'Syne Mono', monospace;
+  font-family: "Syne Mono", monospace;
+}
+
+@media screen and (max-width:560px) {
+  .product-card {
+    height: 500px;
+    width: 100%;
+  }
+  .img-contenedor {
+    justify-content: center;
+  }
+  .prod-img {
+    width: 90%;
+    height: 90%;
+  }
+  .tit-contenedor {
+    height: 70px;
+  }
+  .tit-contenedor h3 {
+    font-size: 1.5rem;
+  }
+  .tit-contenedor h4 {
+    font-size: 1.7rem;
+  }
 }

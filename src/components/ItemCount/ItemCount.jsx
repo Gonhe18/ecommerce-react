@@ -4,7 +4,6 @@ import { useState } from "react";
 import Btn from "../Btn/Btn";
 
 export default function ItemCount({ cantProd }) {
-
   const [contador, setContador] = useState(1);
 
   const clickAumentar = () => {
@@ -26,7 +25,7 @@ export default function ItemCount({ cantProd }) {
             <BsPlusLg />
           </label>
         </div>
-        <Btn msjCount="Agregar al carrito" />
+        <Btn msjCount="Agregar al carrito" cant={contador} />
       </div>
     </>
   );
