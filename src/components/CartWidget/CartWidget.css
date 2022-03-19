@@ -1,6 +1,6 @@
 .cart-btn {
   position: relative;
-  left: 90px;
+  left: 100%;
   padding: 10px;
   cursor: pointer;
 }
@@ -19,4 +19,18 @@
   color: #000;
   font-weight: bold;
   font-size: 13px;
+}
+@media screen and (max-width: 992px) {
+  
+  .cart-btn {
+    position: static;
+    display: flex;
+    justify-content: center;
+  }
+  .cart-items {
+    position: static;
+    background: none;
+    color: #fff;
+    font-size: 18px;
+  }
 }

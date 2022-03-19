@@ -15,14 +15,13 @@ export default function NavBar() {
         expand="lg"
         variant="dark"
       >
+        <Container>
         <NavLink className={({ isActive }) => "navbarTitulo"} to="/">
           <h1>
             Vice<span className="bandera">A</span>R
             <span className="bandera">G</span>
           </h1>
         </NavLink>
-
-        <Container className="contenedor">
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="cont">

@@ -12,3 +12,11 @@
   justify-content: center;
   margin-top: 150px;
 }
+
+@media screen and (max-width: 768px) {
+  .titulo {
+    font-size: 3rem;
+    letter-spacing: 0.1rem;
+    padding: 0;
+  }
+}

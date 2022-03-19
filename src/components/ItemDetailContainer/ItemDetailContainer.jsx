@@ -15,7 +15,7 @@ export default function ItemDetailContainer({ title }) {
     setTimeout(() => {
       getFetch()
         .then((data) =>
-          setProducto(data.find((prod) => prod.id === Number(id)))
+          setProducto(data.find((prod) => prod.id === id))
         )
         .catch((error) => console.log(error))
         .finally(() => setLoading(false));
@@ -36,7 +36,7 @@ export default function ItemDetailContainer({ title }) {
           <Triangle color="#1a1a40" height={100} width={100} />
         </div>
       ) : (
-        <ItemDetail prod={producto} />
+        <ItemDetail prod={producto}/>
       )}
     </>
   );

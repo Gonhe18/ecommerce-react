@@ -10,7 +10,7 @@
   padding: 0 20px;
   margin: 0;
   color: #fff;
-  font-family: 'Passion One', cursive;
+  font-family: "Passion One", cursive;
 }
 .bandera {
   color: aqua;
@@ -27,9 +27,9 @@
   padding: 5px;
   text-decoration: none;
   color: #fff;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
-.navbarCat:hover{
+.navbarCat:hover {
   color: #fff;
   background-color: rgba(0, 255, 255, 0.068);
   border-radius: 10px;
@@ -37,4 +37,15 @@
 .active {
   border-radius: 10px;
   background-color: rgba(0, 255, 255, 0.205);
+}
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .cont {
+    width: 100%;
+  }
 }
