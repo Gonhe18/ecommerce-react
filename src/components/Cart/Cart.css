@@ -1,3 +1,92 @@
-.cart{
-  height: 100vh;
+.pago {
+  min-height: 100vh;
+}
+.pago h2 {
+  font-size: 4rem;
+  font-family: "Ramaraja", serif;
+  text-align: center;
+  padding: 15px 0;
+}
+.detalle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+.titulo-detalle {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  width: 100%;
+}
+.titulo-detalle h3 {
+  padding: 10px 0;
+  border: #000 1px solid;
+  font-size: 2.5rem;
+  font-family: "Ramaraja", serif;
+}
+
+.detalleCompra {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  border-bottom: 1px solid #000;
+}
+.info-producto {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: "Roboto", sans-serif;
+
+}
+.title-prod {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+.title-prod h4{
+  font-size: 1.5rem;
+  font-family: "Roboto", sans-serif;
+}
+img {
+  width: 80px;
+}
+
+.cant-producto {
+  width: 100%;
+}
+.modifProd {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 5px auto;
+}
+.cant-item {
+  font-size: 1.3rem;
+  margin: 0;
+}
+.remove-item {
+  color: rgb(92, 90, 90);
+  padding: 2px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+.remove-item:hover {
+  font-weight: bold;
+  background: rgba(255, 0, 0, 0.404);
+  color: black;
+  padding: 2px;
+  border-radius: 5px;
+}
+.precio{
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
