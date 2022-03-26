@@ -1,6 +1,6 @@
 # **E-Commerce Con Reactjs 🛒 - CoderHouse**
 
-Sitio web creado como parte del proyecto final para el curso de Desarrollador Frontend React, de CoderHouse. 
+Sitio web creado como parte del proyecto final para el curso de Desarrollador Frontend React, de CoderHouse. Utilizando las herramientas aprendidas durante la cursada, la misma serían: HTML, CSS, JavaScript y Reactjs.
 El mismo puede dividirse en 4 secciones:
 
 1.  **MENÚ DE NAVEGACIÓN:**
