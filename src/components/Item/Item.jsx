@@ -5,7 +5,7 @@ import "./Item.css";
 export default function Item() {
   const { prodCat } = useCartContext();
   const { categoria } = useParams();
-  
+  // Obtengo productos por categoria
   const product = prodCat(categoria);
 
   return (

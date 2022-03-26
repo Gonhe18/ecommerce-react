@@ -4,39 +4,42 @@ import Button from "react-bootstrap/Button";
 import { BsDashLg, BsPlusLg } from "react-icons/bs";
 import "./ItemCount.css";
 
-export default function ItemCount({ addCart }) {
-  const { productos, contador, setContador, btn, setBtn, carrito } =
-    useCartContext();
+export default function ItemCount() {
+  const {
+    contador,
+    btn,
+    inCart,
+    carrito,
+    clickAumentar,
+    clickDisminuir,
+    addCart,
+  } = useCartContext();
   const { id } = useParams();
-  const validProd = carrito.find((prod) => prod.id === id);
 
+  // Verifico si el producto esta en el carrito
+  const isInCart = carrito.find((prod) => prod.id === id);
   // Estado btn agregar al carrito
-  const inCart = () => {
-    setBtn("addCart");
-  };
-  // Aumenta cantidad productos
-  const clickAumentar = () => {
-    const stockProd = productos.find((prod) => prod.id === id);
-    contador < stockProd.stock
-      ? setContador(contador + 1)
-      : setContador(stockProd.stock);
-  };
-  // Disminuye cantidad productos
-  const clickDisminuir = () => {
-    contador > 1 ? setContador(contador - 1) : setContador(1);
-  };
 
+  localStorage.setItem("carrito", JSON.stringify(carrito));
   return (
     <>
-      {btn === "addCart" && !validProd ? (
+      {btn === "addCart" && !isInCart ? (
         <>
           <div className="contador">
-            <BsDashLg className="disminuir" onClick={clickDisminuir} />
+            <BsDashLg
+              className="disminuir"
+              data-id={id}
+              onClick={clickDisminuir}
+            />
             <label className="contadorItem">{contador}</label>
-            <BsPlusLg className="aumentar" onClick={clickAumentar} />
+            <BsPlusLg
+              className="aumentar"
+              data-id={id}
+              onClick={clickAumentar}
+            />
           </div>
           <div className="btn-item">
-            <Button variant="outline-info" onClick={addCart}>
+            <Button variant="outline-info" data-id={id} onClick={addCart}>
               Agregar a carrito
             </Button>
           </div>
