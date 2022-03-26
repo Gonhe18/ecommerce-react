@@ -11,8 +11,8 @@ export default function Cart({ title }) {
     carrito,
     limpiarCarrito,
     removerItems,
-    clickAumentar,
-    clickDisminuir,
+    // clickAumentar,
+    // clickDisminuir,
   } = useCartContext();
 
   return (
@@ -42,13 +42,13 @@ export default function Cart({ title }) {
                         <BsDashLg
                           className="disminuir"
                           data-id={prod.id}
-                          onClick={clickDisminuir}
+                          // onClick={clickDisminuir}
                         />
                         <p className="cant-item">{prod.cantidad}</p>
                         <BsPlusLg
                           className="aumentar"
                           data-id={prod.id}
-                          onClick={clickAumentar}
+                          // onClick={clickAumentar}
                         />
                       </div>
                       <span

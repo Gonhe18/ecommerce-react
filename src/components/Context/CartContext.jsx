@@ -16,12 +16,12 @@ export function CartContextProvider({ children }) {
 
   // Obtengo datos de API
   useEffect(() => {
-    // setTimeout(() => {
+    setTimeout(() => {
     getFetch()
       .then((data) => setProductos(data))
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
-    // }, 3000);
+    }, 3000);
   }, []);
   // Filtro por categoría
   const prodCat = (cat) => {
