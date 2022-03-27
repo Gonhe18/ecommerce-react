@@ -114,7 +114,7 @@
   .bloqueDescripcion {
     font-size: 1.1rem;
   }
-  .bloqueDescripcion li {
+  .textDescripcion {
     margin: 0;
     line-height: 2rem;
   }

@@ -3,16 +3,18 @@ import { BsDashLg } from "react-icons/bs";
 import { BsPlusLg } from "react-icons/bs";
 import Button from "react-bootstrap/Button";
 import { carritoVacio } from "../../helpers/alert.js";
+import { memo } from "react";
 
 import "./Cart.css";
 
-export default function Cart({ title }) {
+ const Cart = memo(({ title }) => {
   const {
     carrito,
     limpiarCarrito,
     removerItems,
-    // clickAumentar,
-    // clickDisminuir,
+    cantidadItemCart,
+    cantTotalProd,
+    totalPrecioCart
   } = useCartContext();
 
   return (
@@ -41,14 +43,16 @@ export default function Cart({ title }) {
                       <div className="modifProd">
                         <BsDashLg
                           className="disminuir"
+                          data-action='disminuir'
                           data-id={prod.id}
-                          // onClick={clickDisminuir}
+                          onClick={cantidadItemCart}
                         />
                         <p className="cant-item">{prod.cantidad}</p>
                         <BsPlusLg
                           className="aumentar"
+                          data-action='aumentar'
                           data-id={prod.id}
-                          // onClick={clickAumentar}
+                          onClick={cantidadItemCart}
                         />
                       </div>
                       <span
@@ -59,12 +63,17 @@ export default function Cart({ title }) {
                         Remove
                       </span>
                     </div>
-                    <h4 className="precio">${prod.precio}</h4>
+                    <h4 className="precio">${prod.precio * prod.cantidad}</h4>
                   </div>
                 ))}
               </div>
             </section>
-            <Button className="btnClean" onClick={limpiarCarrito}>
+            <div className="detalleCart">
+              <h3 className='totalGral'>TOTAL</h3>
+              <h3 className='totalItem'>{cantTotalProd()}</h3>
+              <h3 className='totalPrecio'>${cantTotalProd() * totalPrecioCart()}</h3>
+            </div>
+            <Button variant="outline-primary" className="btnClean" onClick={limpiarCarrito}>
               Vaciar carrito
             </Button>
           </>
@@ -74,4 +83,6 @@ export default function Cart({ title }) {
       </div>
     </>
   );
-}
+})
+
+export default Cart

@@ -96,3 +96,27 @@ img {
   font-size: 1.5rem;
   font-weight: bold;
 }
+.detalleCart{
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  width: 100%;
+  /* border: 1px solid #000; */
+  padding: 15px 0;
+}
+.totalGral{
+  text-align: right;
+  padding-right: 50px;
+  font-family: 'Syne Mono';
+  font-size: 2rem;
+}
+.totalItem, .totalPrecio{
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.btnClean{
+  margin: 20px 0;
+  width: 20%;
+  font-weight: bold;
+}

@@ -29,9 +29,7 @@ export default function ItemDetail() {
             </div>
           </div>
           <div className="bloqueDescripcion">
-            {prod.descripcion.map((product, index) => (
-              <li key={index}>{product}</li>
-            ))}
+            <p className="textDescripcion">{prod.descripcion}</p>
           </div>
         </article>
       </div>

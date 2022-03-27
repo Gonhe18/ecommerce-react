@@ -7,7 +7,7 @@
     "precio": 8170,
     "img": "../img/prod/Teclado - Yama K550.jpg",
     "stock": 10,
-    "descripcion":["Tipo Teclado: Mecánicos", "Tipo Switch: Outemu Purple, táctil sin click audible, fuerza de actuación 62gr", "Teclas Multimedia: Si", "Teclas Macro: Si", "Bloqueo Tecla Windows: Si", "Tamaño teclado: Full Size", "Reposa Muñecas: Si, extraible", "Retroiluminado: RGB Chroma", "Cable: Goma, reforzado. Soporta 12kg y 10000 flexiones. USB doble enchapado en oro y filtro anti interferencias"]
+    "descripcion":"Tipo Teclado: Mecánicos --- Tipo Switch: Outemu Purple, táctil sin click audible, fuerza de actuación 62gr --- Teclas Multimedia: Si --- Teclas Macro: Si --- Bloqueo Tecla Windows: Si --- Tamaño teclado: Full Size --- Reposa Muñecas: Si, extraible --- Retroiluminado: RGB Chroma --- Cable: Goma, reforzado. Soporta 12kg y 10000 flexiones. USB doble enchapado en oro y filtro anti interferencias"
   },
   {
     "id": "2",
@@ -17,7 +17,7 @@
     "precio": 13990,
     "img": "../img/prod/Teclado - G Pro Kda.png",
     "stock": 10,
-    "descripcion":["Interruptores mecánicos Tactiles GX BROWN", "Iluminación LIGHTSYNC RGB", "Cable desmontable de 1,8 m", "Tasa de informe de 1 ms"]
+    "descripcion":"Interruptores mecánicos Tactiles GX BROWN --- Iluminación LIGHTSYNC RGB --- Cable desmontable de 1,8 m --- Tasa de informe de 1 ms"
   },
   {
     "id": "3",
@@ -27,7 +27,7 @@
     "precio": 21490,
     "img": "../img/prod/Teclado - K70.jpg",
     "stock": 10,
-    "descripcion":["Keyboard Backlighting: RGB", "Key Switches: CHERRY® MX Speed", "USB Pass-through: USB 2.0 Type-A", "Keyboard Connectivity: Wired", "Keyboard Cable Type: Braided"]
+    "descripcion":"Keyboard Backlighting: RGB --- Key Switches: CHERRY® MX Speed --- USB Pass-through: USB 2.0 Type-A --- Keyboard Connectivity: Wired --- Keyboard Cable Type: Braided"
   },
   {
     "id": "4",
@@ -35,9 +35,9 @@
     "marca": "Philips",
     "modelo": "G403 RGB",
     "precio": 1290,
-    "img": "../img/prod/Mouse - G403.png",
+    "img": "../img/prod/Mouse - G403.jpg",
     "stock": 10,
-    "descripcion":["Conexion: Cable USB", "Largo del cable: 1,8 metros", "Cantidad de Botones: 7", "Precisión del sensor óptico: DPI ajustable de 4 niveles (1000-6400dpi)"]
+    "descripcion":"Conexion: Cable USB --- Largo del cable: 1,8 metros --- Cantidad de Botones: 7 --- Precisión del sensor óptico: DPI ajustable de 4 niveles (1000-6400dpi)"
   },
   {
     "id": "5",
@@ -47,7 +47,7 @@
     "precio": 1595,
     "img": "../img/prod/Mouse - PulseFire.jpg",
     "stock": 10,
-    "descripcion":["Sensor óptico Pixart 3327: admite configuraciones de DPI nativas hasta 6200", "Siete botones programables", "Fácil personalización con el software HyperX NGenuity"]
+    "descripcion":"Sensor óptico Pixart 3327: admite configuraciones de DPI nativas hasta 6200 --- Siete botones programables --- Fácil personalización con el software HyperX NGenuity"
   },
   {
     "id": "6",
@@ -57,7 +57,7 @@
     "precio": 9990,
     "img": "../img/prod/Mouse - G G502 LightSpeed.jpg",
     "stock": 10,
-    "descripcion":["Sensor: HERO™", "Resolución: 100 – 16.000 dpi", "Formato de datos USB: 16 bits/eje", "Tecnología inalámbrica: Tecnología inalámbrica LIGHTSPEED", "Pesas adicionales opcionales: hasta 16g", "Duración de batería: Iluminación predeterminada: hasta 48 horas - Sin iluminación: hasta 60 horas. Una carga de 5 minutos en USB 2.0 proporciona 2,5 horas de juego"]
+    "descripcion":"Sensor: HERO™ --- Resolución: 100 – 16.000 dpi --- Formato de datos USB: 16 bits/eje --- Tecnología inalámbrica: Tecnología inalámbrica LIGHTSPEED --- Pesas adicionales opcionales: hasta 16g --- Duración de batería: Iluminación predeterminada: hasta 48 horas - Sin iluminación: hasta 60 horas. Una carga de 5 minutos en USB 2.0 proporciona 2,5 horas de juego"
   },
   {
     "id": "7",
@@ -67,7 +67,7 @@
     "precio": 8499,
     "img": "../img/prod/Auricular - Cloud Core.jpg",
     "stock": 10,
-    "descripcion":["Auriculares Tipo circumaural, cerrado por la parte trasera", "Peso 309g", "Longitud del cable 1m", "Tipo de conexión 3,5mm (4 polos)", "Micrófono de condensador electret", "Patrón polar Unidireccional, cancelación de ruido", "Mezclador de control de audio USB"]
+    "descripcion":"Auriculares Tipo circumaural, cerrado por la parte trasera --- Peso 309g --- Longitud del cable 1m --- Tipo de conexión 3,5mm (4 polos) --- Micrófono de condensador electret --- Patrón polar Unidireccional, cancelación de ruido --- Mezclador de control de audio USB"
   },
   {
     "id": "8",
@@ -77,7 +77,7 @@
     "precio": 26990,
     "img": "../img/prod/Auricular - Virtuoso.png",
     "stock": 10,
-    "descripcion":["Sonido: 7.1", "Batería: 20hs", "Conexión: 2.4GHz, 3.5mm, USB", "Inalámbrico: Sí", "Compatibilidad: MAC, PC, PS4, Xbox One", "Chatmix: Sí", "Mute toggle: Sí", "Cancelacion activa de sonido: Sí", "Micrófono Patrón Polar: Omnidireccional", "Cable: 1.8m", "Peso: 370g"]
+    "descripcion":"Sonido: 7.1 --- Batería: 20hs --- Conexión: 2.4GHz, 3.5mm, USB --- Inalámbrico: Sí --- Compatibilidad: MAC, PC, PS4, Xbox One --- Chatmix: Sí --- Mute toggle: Sí --- Cancelacion activa de sonido: Sí --- Micrófono Patrón Polar: Omnidireccional --- Cable: 1.8m --- Peso: 370g"
   },
   {
     "id": "9",
@@ -85,9 +85,9 @@
     "marca": "Redragon",
     "modelo": "H260 Hylas RGB",
     "precio": 2999,
-    "img": "../img/prod/Auricular - Hylas.jpeg",
+    "img": "../img/prod/Auricular - Hylas.jpg",
     "stock": 10,
-    "descripcion":["Salida: Stereo", "Copas: Circumaurales", "Material diadema: Plástica, almohadilla de cuerina suave y duradera", "RetroIluminación: Si, retroiluminado RGB", "Cable: 2m mallado en tela de alta resistencia", "Conectores: 3.5mm enchapados en oro para audio y micrófono + USB para alimentar retroiluminación", "Peso: 295g"]
+    "descripcion":"Salida: Stereo --- Copas: Circumaurales --- Material diadema: Plástica, almohadilla de cuerina suave y duradera --- RetroIluminación: Si, retroiluminado RGB --- Cable: 2m mallado en tela de alta resistencia --- Conectores: 3.5mm enchapados en oro para audio y micrófono + USB para alimentar retroiluminación --- Peso: 295g"
   },
   {
     "id": "10",
@@ -97,7 +97,7 @@
     "precio": 440990,
     "img": "../img/prod/Notebook - Gigabyte.jpg",
     "stock": 10,
-    "descripcion":["Almacenamiento: SDD 1Tb", "Conectividad: Wi-Fi: Sí, Bluetooth: Sí", "Gráficos: Nvidia RTX3080P 8Gb GDDR6", "Memoria RAM: 16Gb SODIMM, expandible", "Teclado Numérico: Sí", "Cámara Web: Sí", "Pantalla: 15.6', Resolucion: 3840x2160 UHD", "Procesador: Core I7 11800H 8 Núcleos (16 Subprocesos) 4,6Ghz", "Puertos: USB 3.2, HDMI, Audio/Mic 3.5"]
+    "descripcion":"Almacenamiento: SDD 1Tb --- Conectividad: Wi-Fi: Sí, Bluetooth: Sí --- Gráficos: Nvidia RTX3080P 8Gb GDDR6 --- Memoria RAM: 16Gb SODIMM, expandible --- Teclado Numérico: Sí --- Cámara Web: Sí --- Pantalla: 15.6', Resolucion: 3840x2160 UHD --- Procesador: Core I7 11800H 8 Núcleos (16 Subprocesos) 4,6Ghz --- Puertos: USB 3.2, HDMI, Audio/Mic 3.5"
   },
   {
     "id": "11",
@@ -107,7 +107,7 @@
     "precio": 109990,
     "img": "../img/prod/Notebook - Bangho.jpg",
     "stock": 10,
-    "descripcion":["Almacenamiento: SSD 480 Gb", "Conectividad: Ethernet: No, Wi-Fi: Sí, Bluetooth: Sí", "Memoria RAM: 8 Gb SODIMM, Expandible", "Teclado Numérico: Sí", "Cámara Web: Sí", "Pantalla: 15.6' Resolucion: 1366x768 HD, LED", "Procesador: Core I7 1065g7 4 Núcleos (8 Subprocesos) 3.90Ghz", "Puertos: USB 2.0, HDMI, Audio/Mic 3.5"]
+    "descripcion":"Almacenamiento: SSD 480 Gb --- Conectividad: Ethernet: No, Wi-Fi: Sí, Bluetooth: Sí --- Memoria RAM: 8 Gb SODIMM, Expandible --- Teclado Numérico: Sí --- Cámara Web: Sí --- Pantalla: 15.6' Resolucion: 1366x768 HD, LED --- Procesador: Core I7 1065g7 4 Núcleos (8 Subprocesos) 3.90Ghz --- Puertos: USB 2.0, HDMI, Audio/Mic 3.5"
   },
   {
     "id": "12",
@@ -117,7 +117,7 @@
     "precio": 54990,
     "img": "../img/prod/Notebook - Lenovo.jpg",
     "stock": 10,
-    "descripcion":["Almacenamiento: HDD 64Gb", "Conectividad: Wi-Fi, Bluetooth", "Memoria RAM: 4GB Soldado, Expandible: No", "Teclado Numérico: No", "Cámara Web: Sí", "Pantalla: 10.1' 19280x800 HD, LED", "Procesador: Celeron N4020 2 Núcleos (2 Subprocesos) 2.80Ghz", "Puertos: Usb 2.0, Audio/Mic 3.5"]
+    "descripcion":"Almacenamiento: HDD 64Gb --- Conectividad: Wi-Fi, Bluetooth --- Memoria RAM: 4GB Soldado, Expandible: No --- Teclado Numérico: No --- Cámara Web: Sí --- Pantalla: 10.1' 19280x800 HD, LED --- Procesador: Celeron N4020 2 Núcleos (2 Subprocesos) 2.80Ghz --- Puertos: Usb 2.0, Audio/Mic 3.5"
   },
   {
     "id": "13",
@@ -127,7 +127,7 @@
     "precio": 25990,
     "img": "../img/prod/Monitor - Samsung.jpg",
     "stock": 10,
-    "descripcion":["Pantalla: 24' Plana/CurvaPlano", "Tipo de panel: IPS", "Resolución: 1920x1080", "Ángulo de visión: (H/V)178°/178°", "Tasa de refresco: 75 Hz", "Peso: con soporte 2.7 kg, sin soporte 2.4 kg", "Cable alimentación: 1.5m", "Cable HDMI: Sí"]
+    "descripcion":"Pantalla: 24' Plana/CurvaPlano --- Tipo de panel: IPS --- Resolución: 1920x1080 --- Ángulo de visión: (H/V)178°/178° --- Tasa de refresco: 75 Hz --- Peso: con soporte 2.7 kg, sin soporte 2.4 kg --- Cable alimentación: 1.5m --- Cable HDMI: Sí"
   },
   {
     "id": "14",
@@ -137,7 +137,7 @@
     "precio": 139990,
     "img": "../img/prod/Monitor - Gigabyte.png",
     "stock": 10,
-    "descripcion":["Pantalla: 27'", "Resolución: 2560 x 1440 QHD", "Tasa de refresco: 165Hz", "Tipo de panel: IPS", "Ángulo de visión: (H/V)178°/178°"]
+    "descripcion":"Pantalla: 27' --- Resolución: 2560 x 1440 QHD --- Tasa de refresco: 165Hz --- Tipo de panel: IPS --- Ángulo de visión: (H/V)178°/178°"
   },
   {
     "id": "15",
@@ -147,6 +147,6 @@
     "precio": 78649,
     "img": "../img/prod/Monitor - LG.jpg",
     "stock": 10,
-    "descripcion":["Pantalla: 31,5'", "Resolución: 1920 x 1080", "Tipo de panel: VA", "Tasa de refresco: 165Hz", "HDR10: Si", "Efecto HDR: Si", "Modo lector SI", "Tecnología de reducción de desenfoque de movimiento: MBR", "NVIDIA G-Sync™ Compatible con G-SYNC", "AMD FreeSync™: Si(Premium)", "FreeSync (compensación de fotograma bajo): Si"]
+    "descripcion":"Pantalla: 31,5' --- Resolución: 1920 x 1080 --- Tipo de panel: VA --- Tasa de refresco: 165Hz --- HDR10: Si --- Efecto HDR: Si --- Modo lector SI --- Tecnología de reducción de desenfoque de movimiento: MBR --- NVIDIA G-Sync™ Compatible con G-SYNC --- AMD FreeSync™: Si(Premium) --- FreeSync (compensación de fotograma bajo): Si"
   }
 ]

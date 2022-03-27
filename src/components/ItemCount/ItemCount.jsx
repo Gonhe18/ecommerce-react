@@ -10,8 +10,8 @@ export default function ItemCount() {
     btn,
     inCart,
     carrito,
-    clickAumentar,
-    clickDisminuir,
+    aumentarDetail,
+    disminuirDetail,
     addCart,
   } = useCartContext();
   const { id } = useParams();
@@ -29,13 +29,13 @@ export default function ItemCount() {
             <BsDashLg
               className="disminuir"
               data-id={id}
-              onClick={clickDisminuir}
+              onClick={disminuirDetail}
             />
             <label className="contadorItem">{contador}</label>
             <BsPlusLg
               className="aumentar"
               data-id={id}
-              onClick={clickAumentar}
+              onClick={aumentarDetail}
             />
           </div>
           <div className="btn-item">
