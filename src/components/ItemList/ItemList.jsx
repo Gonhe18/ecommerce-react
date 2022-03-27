@@ -1,8 +1,9 @@
+import { memo } from "react";
 import Item from "./../Item/Item";
 
 import "./ItemList.css";
 
-export default function ItemList() {
+const ItemList = memo(() => {
   return (
     <>
       <div className="cardProd">
@@ -10,4 +11,6 @@ export default function ItemList() {
       </div>
     </>
   );
-}
+});
+
+export default ItemList;

@@ -8,6 +8,7 @@ import "./ItemDetailContainer.css";
 export default function ItemDetailContainer({ title }) {
   const { loading, prodId } = useCartContext();
   const { id } = useParams();
+  
   return (
     <>
       {loading ? (

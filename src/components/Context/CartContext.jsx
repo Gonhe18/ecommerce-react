@@ -12,17 +12,17 @@ export function CartContextProvider({ children }) {
   const [productos, setProductos] = useState([]);
   const [contador, setContador] = useState(1);
   const [btn, setBtn] = useState("addCart");
-  // const [stockProd, setStockProd] = useState();
 
   // Obtengo datos de API
   useEffect(() => {
     setTimeout(() => {
-    getFetch()
-      .then((data) => setProductos(data))
-      .catch((error) => console.log(error))
-      .finally(() => setLoading(false));
+      getFetch()
+        .then((data) => setProductos(data))
+        .catch((error) => console.log(error))
+        .finally(() => setLoading(false));
     }, 3000);
   }, []);
+
   // Filtro por categoría
   const prodCat = (cat) => {
     if (cat) {
@@ -35,15 +35,41 @@ export function CartContextProvider({ children }) {
   const prodId = (id) => {
     return productos.find((prod) => prod.id === id);
   };
-  // Aumenta cantidad productos
-  const clickAumentar = () => {
-    // const id = e.target.dataset.id;
-    // const stockProd = productos.find((prod) => prod.id === id);
-    contador < 10 ? setContador(contador + 1) : setContador(10);
+  // Aumenta cantidad productos en detail
+  const aumentarDetail = (e) => {
+    const id = e.target.dataset.id;
+    const stockProd = productos.find((prod) => prod.id === id);
+    contador < stockProd.stock
+      ? setContador(contador + 1)
+      : setContador(stockProd.stock);
   };
-  // Disminuye cantidad productos
-  const clickDisminuir = () => {
+  // Disminuye cantidad productos en detail
+  const disminuirDetail = () => {
     contador > 1 ? setContador(contador - 1) : setContador(1);
+  };
+  // Aumenta/disminuye cantidad productos en Cart
+  const cantidadItemCart = (e) => {
+    const id = e.target.dataset.id;
+    const action = e.target.dataset.action;
+    const stockInCart = carrito.find((prod) => prod.id === id);
+    if (action === "aumentar") {
+      if (contador <= stockInCart.stock) {
+        stockInCart.cantidad += contador;
+        stockInCart.stock -= contador;
+      }
+      setCarrito([...carrito]);
+    } else {
+      if (stockInCart.cantidad > 1) {
+        stockInCart.cantidad -= contador;
+        stockInCart.stock += contador;
+      } else {
+        for (let i = carrito.length - 1; i >= 0; --i) {
+          if (carrito[i].id === id) carrito.splice(i, 1);
+        }
+      }
+      setCarrito([...carrito]);
+    }
+    localStorage.setItem("carrito", JSON.stringify(carrito));
   };
   // Agrego productos al carrito
   const addCart = (e) => {
@@ -51,7 +77,6 @@ export function CartContextProvider({ children }) {
     const id = e.target.dataset.id;
     const prodInCart = carrito.find((prod) => prod.id === id);
     const prod = prodId(id);
-
     if (prodInCart) {
       if (contador < prodInCart.stock) {
         prodInCart.cantidad += contador;
@@ -64,6 +89,8 @@ export function CartContextProvider({ children }) {
         { ...prod, stock: prod.stock - contador, cantidad: contador },
       ]);
     }
+    prod.stock -= contador;
+    setProductos([...productos]);
     setContador(1);
   };
   // Almaceno total de productos agregados al carrito
@@ -86,8 +113,14 @@ export function CartContextProvider({ children }) {
     setCarrito([...carrito]);
     localStorage.setItem("carrito", JSON.stringify(carrito));
   };
+  // Modifica vista btn en detalle productos
   const inCart = () => {
     setBtn("addCart");
+  };
+  // Obtengo el saldo total del cart
+  const totalPrecioCart = () => {
+    const totalPrecio = carrito.map((prod) => prod.precio);
+    return totalPrecio.reduce((acc, item) => acc + item, 0);
   };
 
   return (
@@ -106,10 +139,12 @@ export function CartContextProvider({ children }) {
         cantTotalProd,
         limpiarCarrito,
         removerItems,
-        clickAumentar,
-        clickDisminuir,
+        aumentarDetail,
+        disminuirDetail,
         addCart,
         inCart,
+        cantidadItemCart,
+        totalPrecioCart,
       }}
     >
       {children}
