@@ -3,14 +3,13 @@ import { useParams, Link } from "react-router-dom";
 import "./Item.css";
 
 export default function Item() {
-  const { prodCat } = useCartContext();
+  const { productos, prodCategoria } = useCartContext();
   const { categoria } = useParams();
-  // Obtengo productos por categoria
-  const product = prodCat(categoria);
+  const prods = categoria ? prodCategoria : productos;
 
   return (
     <>
-      {product.map((prod) => (
+      {prods.map((prod) => (
         <Link to={`/producto/${prod.id}`} key={prod.id}>
           <article className="product-card">
             <div className="img-contenedor">

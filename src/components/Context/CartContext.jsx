@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { getFetch } from "../../helpers/getFetch.js";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
+
 // Recupero datos del localStorage
 const carritoAlmacen = JSON.parse(localStorage.getItem("carrito")) || [];
 // Creo contexto
@@ -9,49 +10,45 @@ export const useCartContext = () => useContext(CartContext);
 export function CartContextProvider({ children }) {
   const [carrito, setCarrito] = useState(carritoAlmacen);
   const [loading, setLoading] = useState(true);
-  const [productos, setProductos] = useState([]);
   const [contador, setContador] = useState(1);
   const [btn, setBtn] = useState("addCart");
+  const [productos, setProductos] = useState([]);
+  const [prodCategoria, setProdCategoria] = useState([]);
+  const [producto, setProducto] = useState({});
 
-  // Obtengo datos de API
+  // Obtengo TODOS los producto
   useEffect(() => {
-    setTimeout(() => {
-      getFetch()
-        .then((data) => setProductos(data))
-        .catch((error) => console.log(error))
-        .finally(() => setLoading(false));
-    }, 3000);
+    const db = getFirestore();
+    const allProd = collection(db, "Items");
+    getDocs(allProd)
+      .then((data) =>
+        setProductos(data.docs.map((prod) => ({ id: prod.id, ...prod.data() })))
+      )
+      .catch((error) => console.log(error))
+      .finally(() => setLoading(false));
   }, []);
 
-  // Filtro por categoría
-  const prodCat = (cat) => {
-    if (cat) {
-      return productos.filter((prod) => prod.cat === cat);
-    } else {
-      return productos;
-    }
-  };
-  // Filtro por Id
-  const prodId = (id) => {
-    return productos.find((prod) => prod.id === id);
-  };
   // Aumenta cantidad productos en detail
   const aumentarDetail = (e) => {
     const id = e.target.dataset.id;
     const stockProd = productos.find((prod) => prod.id === id);
-    contador < stockProd.stock
-      ? setContador(contador + 1)
-      : setContador(stockProd.stock);
+
+    console.log("aumentarDetail", stockProd);
+
+    (contador < stockProd.stock) && setContador(contador + 1);
   };
   // Disminuye cantidad productos en detail
   const disminuirDetail = () => {
-    contador > 1 ? setContador(contador - 1) : setContador(1);
+    (contador > 1) && setContador(contador - 1);
   };
   // Aumenta/disminuye cantidad productos en Cart
   const cantidadItemCart = (e) => {
     const id = e.target.dataset.id;
     const action = e.target.dataset.action;
     const stockInCart = carrito.find((prod) => prod.id === id);
+
+    console.log("cantidadItemCart", stockInCart);
+
     if (action === "aumentar") {
       if (contador <= stockInCart.stock) {
         stockInCart.cantidad += contador;
@@ -76,7 +73,6 @@ export function CartContextProvider({ children }) {
     setBtn("inCart");
     const id = e.target.dataset.id;
     const prodInCart = carrito.find((prod) => prod.id === id);
-    const prod = prodId(id);
     if (prodInCart) {
       if (contador < prodInCart.stock) {
         prodInCart.cantidad += contador;
@@ -86,10 +82,10 @@ export function CartContextProvider({ children }) {
     } else {
       setCarrito([
         ...carrito,
-        { ...prod, stock: prod.stock - contador, cantidad: contador },
+        { ...producto, stock: producto.stock - contador, cantidad: contador },
       ]);
     }
-    prod.stock -= contador;
+    producto.stock -= contador;
     setProductos([...productos]);
     setContador(1);
   };
@@ -106,7 +102,6 @@ export function CartContextProvider({ children }) {
   // Remover items
   const removerItems = (e) => {
     const idProd = e.target.dataset.id;
-
     for (let i = carrito.length - 1; i >= 0; --i) {
       if (carrito[i].id === idProd) carrito.splice(i, 1);
     }
@@ -126,16 +121,18 @@ export function CartContextProvider({ children }) {
   return (
     <CartContext.Provider
       value={{
+        setCarrito,
         carrito,
         productos,
+        setProducto,
+        producto,
         loading,
-        btn,
         setBtn,
-        contador,
+        btn,
+        setProdCategoria,
+        prodCategoria,
         setContador,
-        setCarrito,
-        prodCat,
-        prodId,
+        contador,
         cantTotalProd,
         limpiarCarrito,
         removerItems,

@@ -7,14 +7,14 @@ import { memo } from "react";
 
 import "./Cart.css";
 
- const Cart = memo(({ title }) => {
+const Cart = memo(({ title }) => {
   const {
     carrito,
     limpiarCarrito,
     removerItems,
     cantidadItemCart,
     cantTotalProd,
-    totalPrecioCart
+    totalPrecioCart,
   } = useCartContext();
 
   return (
@@ -43,14 +43,14 @@ import "./Cart.css";
                       <div className="modifProd">
                         <BsDashLg
                           className="disminuir"
-                          data-action='disminuir'
+                          data-action="disminuir"
                           data-id={prod.id}
                           onClick={cantidadItemCart}
                         />
                         <p className="cant-item">{prod.cantidad}</p>
                         <BsPlusLg
                           className="aumentar"
-                          data-action='aumentar'
+                          data-action="aumentar"
                           data-id={prod.id}
                           onClick={cantidadItemCart}
                         />
@@ -67,15 +67,21 @@ import "./Cart.css";
                   </div>
                 ))}
               </div>
+              <div className="detalleCart">
+                <h3 className="totalGral">TOTAL</h3>
+                <h3 className="totalItem">{cantTotalProd()}</h3>
+                <h3 className="totalPrecio">
+                  ${cantTotalProd() * totalPrecioCart()}
+                </h3>
+              </div>
+              <Button
+                variant="outline-primary"
+                className="btnClean"
+                onClick={limpiarCarrito}
+              >
+                Vaciar carrito
+              </Button>
             </section>
-            <div className="detalleCart">
-              <h3 className='totalGral'>TOTAL</h3>
-              <h3 className='totalItem'>{cantTotalProd()}</h3>
-              <h3 className='totalPrecio'>${cantTotalProd() * totalPrecioCart()}</h3>
-            </div>
-            <Button variant="outline-primary" className="btnClean" onClick={limpiarCarrito}>
-              Vaciar carrito
-            </Button>
           </>
         ) : (
           carritoVacio(carrito)
@@ -83,6 +89,6 @@ import "./Cart.css";
       </div>
     </>
   );
-})
+});
 
-export default Cart
+export default Cart;
