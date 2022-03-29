@@ -1,35 +1,32 @@
 import { useCartContext } from "../Context/CartContext";
-import { useParams } from "react-router-dom";
 import ItemCount from "./../ItemCount/ItemCount";
 
 import "./ItemDetail.css";
 
 export default function ItemDetail() {
-  const { prodId } = useCartContext();
-  const { id } = useParams();
-  const prod = prodId(id);
+  const { producto } = useCartContext();
 
   return (
     <>
-      <div className="contenidoCard" key={prod.id}>
+      <div className="contenidoCard" key={producto.id}>
         <article>
           <div className="cardItem">
             <div className="imgCard">
-              <img src={prod.img} alt="producto" className="prodImg" />
+              <img src={producto.img} alt="producto" className="prodImg" />
             </div>
             <div className="bloqueContenedor">
               <h3 className="titContenedor">
-                {prod.marca} {prod.modelo}
+                {producto.marca} {producto.modelo}
               </h3>
               <div className="separador"></div>
               <div className="bloqueContador">
-                <h4>${prod.precio} </h4>
+                <h4>${producto.precio} </h4>
                 <ItemCount />
               </div>
             </div>
           </div>
           <div className="bloqueDescripcion">
-            <p className="textDescripcion">{prod.descripcion}</p>
+            <p className="textDescripcion">{producto.descripcion}</p>
           </div>
         </article>
       </div>
