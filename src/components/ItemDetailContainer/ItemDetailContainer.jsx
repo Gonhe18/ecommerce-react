@@ -8,7 +8,7 @@ import { getFirestore, getDoc, doc } from "firebase/firestore";
 import "./ItemDetailContainer.css";
 
 export default function ItemDetailContainer({ title }) {
-  const { loading, setLoading, setProducto } = useCartContext();
+  const { loading, setProducto } = useCartContext();
   const { id } = useParams();
 
   // Obtengo producto por ID
@@ -17,9 +17,8 @@ export default function ItemDetailContainer({ title }) {
     const prodId = doc(db, "Items", id || "");
     getDoc(prodId)
       .then((data) => setProducto({ id: data.id, ...data.data() }))
-      .catch((error) => console.log(error))
-      .finally(() => setLoading(false));
-  }, [id, setProducto, setLoading]);
+      .catch((error) => console.log(error));
+  }, [id, setProducto]);
 
   return (
     <>
