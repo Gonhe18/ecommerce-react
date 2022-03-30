@@ -16,9 +16,6 @@ export default function ItemCount() {
   } = useCartContext();
   const { id } = useParams();
 
-  // Actualizo el localStorage
-  localStorage.setItem("carrito", JSON.stringify(carrito));
-
   // Verifico si el producto esta en el carrito
   const isInCart = carrito.find((prod) => prod.id === id);
 

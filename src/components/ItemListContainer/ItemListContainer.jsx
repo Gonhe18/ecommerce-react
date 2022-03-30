@@ -8,7 +8,7 @@ import { getFirestore, collection, getDocs,query,where } from 'firebase/firestor
 import "./ItemListContainer.css";
 
 export default function ItemListContainer({ title }) {
-  const { loading,setProdCategoria } = useCartContext();
+  const { loading, setProdCategoria } = useCartContext();
   const { categoria } = useParams();
     
   useEffect(() => {

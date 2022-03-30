@@ -1,20 +1,19 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 
-// Recupero datos del localStorage
 const carritoAlmacen = JSON.parse(localStorage.getItem("carrito")) || [];
 // Creo contexto
 const CartContext = createContext();
 export const useCartContext = () => useContext(CartContext);
 
 export function CartContextProvider({ children }) {
-  const [carrito, setCarrito] = useState(carritoAlmacen);
   const [loading, setLoading] = useState(true);
   const [contador, setContador] = useState(1);
   const [btn, setBtn] = useState("addCart");
   const [productos, setProductos] = useState([]);
   const [prodCategoria, setProdCategoria] = useState([]);
   const [producto, setProducto] = useState({});
+  const [carrito, setCarrito] = useState(carritoAlmacen);
 
   // Obtengo TODOS los producto
   useEffect(() => {
@@ -28,65 +27,49 @@ export function CartContextProvider({ children }) {
       .finally(() => setLoading(false));
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+  }, [carrito]);
+
   // Aumenta cantidad productos en detail
-  const aumentarDetail = (e) => {
-    const id = e.target.dataset.id;
-    const stockProd = productos.find((prod) => prod.id === id);
-
-    console.log("aumentarDetail", stockProd);
-
-    (contador < stockProd.stock) && setContador(contador + 1);
+  const aumentarDetail = () => {
+    contador < producto.stock && setContador(contador + 1);
   };
   // Disminuye cantidad productos en detail
   const disminuirDetail = () => {
-    (contador > 1) && setContador(contador - 1);
+    contador > 1 && setContador(contador - 1);
   };
-  // Aumenta/disminuye cantidad productos en Cart
-  const cantidadItemCart = (e) => {
-    const id = e.target.dataset.id;
-    const action = e.target.dataset.action;
+  // Aumenta cantidad productos en Cart
+  const aumentarCart = (e) => {
+    const id = e.target.parentElement.id || e.target.id;
     const stockInCart = carrito.find((prod) => prod.id === id);
-
-    console.log("cantidadItemCart", stockInCart);
-
-    if (action === "aumentar") {
-      if (contador <= stockInCart.stock) {
-        stockInCart.cantidad += contador;
-        stockInCart.stock -= contador;
-      }
-      setCarrito([...carrito]);
-    } else {
-      if (stockInCart.cantidad > 1) {
-        stockInCart.cantidad -= contador;
-        stockInCart.stock += contador;
-      } else {
-        for (let i = carrito.length - 1; i >= 0; --i) {
-          if (carrito[i].id === id) carrito.splice(i, 1);
-        }
-      }
-      setCarrito([...carrito]);
+    if (contador <= stockInCart.stock) {
+      stockInCart.cantidad += contador;
+      stockInCart.stock -= contador;
     }
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+    setCarrito([...carrito]);
+  };
+  // Disminuye cantidad productos en Cart
+  const disminuirCart = (e) => {
+    const id = e.target.parentElement.id || e.target.id;
+    const stockInCart = carrito.find((prod) => prod.id === id);
+    if (stockInCart.cantidad > 1) {
+      stockInCart.cantidad -= contador;
+      stockInCart.stock += contador;
+    } else {
+      for (let i = carrito.length - 1; i >= 0; --i) {
+        if (carrito[i].id === id) carrito.splice(i, 1);
+      }
+    }
+    setCarrito([...carrito]);
   };
   // Agrego productos al carrito
-  const addCart = (e) => {
+  const addCart = () => {
     setBtn("inCart");
-    const id = e.target.dataset.id;
-    const prodInCart = carrito.find((prod) => prod.id === id);
-    if (prodInCart) {
-      if (contador < prodInCart.stock) {
-        prodInCart.cantidad += contador;
-        prodInCart.stock -= contador;
-      }
-      setCarrito([...carrito]);
-    } else {
-      setCarrito([
-        ...carrito,
-        { ...producto, stock: producto.stock - contador, cantidad: contador },
-      ]);
-    }
-    producto.stock -= contador;
-    setProductos([...productos]);
+    setCarrito([
+      ...carrito,
+      { ...producto, stock: producto.stock - contador, cantidad: contador },
+    ]);
     setContador(1);
   };
   // Almaceno total de productos agregados al carrito
@@ -96,17 +79,15 @@ export function CartContextProvider({ children }) {
   };
   // Limpiar carrito
   const limpiarCarrito = () => {
-    localStorage.clear();
     setCarrito([]);
   };
   // Remover items
   const removerItems = (e) => {
-    const idProd = e.target.dataset.id;
+    const idProd = e.target.parentElement.id || e.target.id;
     for (let i = carrito.length - 1; i >= 0; --i) {
       if (carrito[i].id === idProd) carrito.splice(i, 1);
     }
     setCarrito([...carrito]);
-    localStorage.setItem("carrito", JSON.stringify(carrito));
   };
   // Modifica vista btn en detalle productos
   const inCart = () => {
@@ -121,7 +102,6 @@ export function CartContextProvider({ children }) {
   return (
     <CartContext.Provider
       value={{
-        setCarrito,
         carrito,
         productos,
         setProducto,
@@ -140,7 +120,8 @@ export function CartContextProvider({ children }) {
         disminuirDetail,
         addCart,
         inCart,
-        cantidadItemCart,
+        aumentarCart,
+        disminuirCart,
         totalPrecioCart,
       }}
     >
