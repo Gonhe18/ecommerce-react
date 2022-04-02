@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+
 
 const carritoAlmacen = JSON.parse(localStorage.getItem("carrito")) || [];
 // Creo contexto
@@ -11,22 +11,10 @@ export function CartContextProvider({ children }) {
   const [contador, setContador] = useState(1);
   const [btn, setBtn] = useState("addCart");
   const [productos, setProductos] = useState([]);
-  const [prodCategoria, setProdCategoria] = useState([]);
   const [producto, setProducto] = useState({});
   const [carrito, setCarrito] = useState(carritoAlmacen);
 
-  // Obtengo TODOS los producto
-  useEffect(() => {
-    const db = getFirestore();
-    const allProd = collection(db, "Items");
-    getDocs(allProd)
-      .then((data) =>
-        setProductos(data.docs.map((prod) => ({ id: prod.id, ...prod.data() })))
-      )
-      .catch((error) => console.log(error))
-      .finally(() => setLoading(false));
-  }, []);
-
+// Actualizo localStorage
   useEffect(() => {
     localStorage.setItem('carrito', JSON.stringify(carrito));
   }, [carrito]);
@@ -103,14 +91,14 @@ export function CartContextProvider({ children }) {
     <CartContext.Provider
       value={{
         carrito,
+        setProductos,
         productos,
         setProducto,
         producto,
+        setLoading,
         loading,
         setBtn,
         btn,
-        setProdCategoria,
-        prodCategoria,
         setContador,
         contador,
         cantTotalProd,
