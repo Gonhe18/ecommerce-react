@@ -2,25 +2,36 @@ import ItemList from "./../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import { Triangle } from "react-loader-spinner";
 import { useCartContext } from "../Context/CartContext";
-import { useEffect } from 'react';
-import { getFirestore, collection, getDocs,query,where } from 'firebase/firestore';
+import { useEffect } from "react";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 
 import "./ItemListContainer.css";
 
 export default function ItemListContainer({ title }) {
-  const { loading, setProdCategoria } = useCartContext();
+  const { loading, setProductos, setLoading } = useCartContext();
   const { categoria } = useParams();
-    
+
+  // Obtengo TODOS los producto
   useEffect(() => {
     const db = getFirestore();
-    const prods = collection(db, "Items");
-    const filterCat = query(prods,where('cat','==', categoria || ''))
-    getDocs(filterCat)
+
+    const filtroProductos = categoria
+      ? query(collection(db, "Items"), where("cat", "==", categoria || ""))
+      : collection(db, "Items");
+
+    getDocs(filtroProductos)
       .then((data) =>
-      setProdCategoria(data.docs.map((prod) => ({ id: prod.id, ...prod.data() })))
+        setProductos(data.docs.map((prod) => ({ id: prod.id, ...prod.data() })))
       )
       .catch((error) => console.log(error))
-  }, [categoria,setProdCategoria]);
+      .finally(() => setLoading(false));
+  }, [categoria, setProductos, setLoading]);
 
   return (
     <>

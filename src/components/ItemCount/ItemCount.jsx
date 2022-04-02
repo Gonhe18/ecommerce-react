@@ -7,7 +7,6 @@ import "./ItemCount.css";
 export default function ItemCount() {
   const {
     contador,
-    btn,
     inCart,
     carrito,
     aumentarDetail,
@@ -21,18 +20,16 @@ export default function ItemCount() {
 
   return (
     <>
-      {btn === "addCart" && !isInCart ? (
+      {!isInCart ? (
         <>
           <div className="contador">
             <BsDashLg
               className="disminuir"
-              data-id={id}
               onClick={disminuirDetail}
             />
             <label className="contadorItem">{contador}</label>
             <BsPlusLg
               className="aumentar"
-              data-id={id}
               onClick={aumentarDetail}
             />
           </div>
