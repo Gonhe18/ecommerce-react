@@ -10,16 +10,16 @@ El sitio puede dividirse en 4 secciones:
 	- **CARRITO:** nos da acceso a los productos previamente agregados, viendo el detalle de los mismos.
 
 1. **HOME:**
-	- Muestra, mediante cards, todos los productos que tenemos en nuestra API. Se detallan algunos datos como la marca, modelo y precio. En caso de haber seleccionado alguna de las categorías en el menú de navegación, se filtrará por la misma y podremos ver solo los productos que conincidan con nuestra búsqueda.
+	- Muestra, mediante cards, todos los productos obtenidos desde Firebase. Se detallan algunos datos como la marca, modelo y precio. En caso de haber seleccionado alguna de las categorías en el menú de navegación, se filtrará por la misma y podremos ver solo los productos que conincidan con nuestra búsqueda.
 
 1. **DETALLE PRODUCTO:**
-	- Al seleccionar una card desde el Home nos derivará a una nueva sección, la cual contendrá la información completa del producto seleccionado (marca, modelo, precio, imagen y descripción), además de botones para aumentar/disminutir cantidad de ítems (el mismo esta atado al stock del producto) y otro para agregar al carrito, al presionarlo no solo se agrega el producto a nuestro carrito sino que se modifica la vista, mostrando 2 nuevos botones, los cuales nos permite seguir comprando o ir directamente a la sección del carrito y finalizar la compra. 
+	- Al seleccionar una card desde el Home nos derivará a una nueva sección, la cual contendrá la información completa del producto seleccionado (marca, modelo, precio, imagen y descripción), además de botones para aumentar/disminutir cantidad de ítems, los cuales esta atado al stock del producto y en caso de que haya pocos productos se notifica que son los últimos productos como así también se informa en el caso de que ya no hay stock, dando la posibilidad de volver al home y seguir comprando. Además hay otro para agregar al carrito, al presionarlo no solo se agrega el producto a nuestro carrito sino que se modifica la vista, mostrando 2 nuevos botones, los cuales nos permite seguir comprando o ir directamente a la sección del carrito y finalizar la compra. 
 	- Desde el detalle tendremos acceso al menú de navegación, lo cual nos permite ir al Home o a alguna categoría para elegir otros productos.
 
 1. **CARRITO:**
 	- En esta sección nos mostrará todos los productos que agregamos a nuestro carrito, los cuales están almacenados en el localStorage. Además de los datos tendremos la posibilidad de modificar la cantidad de productos agregados, como así también remover determinado producto del carrito. Al final de la pantalla tendremos un botón que nos permite vaciar por completo nuestro carrito, si así lo deseamos.
-	- Por último, al no existir ningún producto a nuestro carrito (ya sea por eliminarlos manualmente o desde el botón vaciar), nos figurará una alerta indicando que el carrito esta vacio y nos redireccionará automáticamente al Home, para poder continuar comprando.
-	- Solo resta crear el proceso para finalización de la compra.
+	- Al no existir ningún producto en nuestro carrito (ya sea por eliminarlos manualmente o desde el botón vaciar), nos figurará en la pantalla que el carrito se encuentra vacio dando la posibilidad de volver al home para continuar comprando.
+	- Además de la lista de productos seleccionados nos figura un formulario, el cual nos solicita cargar algunos datos para poder generar la orden de compra. Al generarla nos figurará una alerta indicando que la compra fue exitosa y detallando el ID de dicha orden, la misma se almacena en Firebase. Al realizar este proceso el carrito se vacia y nos habilita la posibilidad de volver al home.
 
 ## **DEPENDENCIAS**
 Durante el proceso de creación del sitio web utilicé algunas dependencias que me permitieron darle una mejor estética al proyecto.
