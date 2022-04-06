@@ -1,7 +1,7 @@
 import ItemList from "./../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import { Triangle } from "react-loader-spinner";
-import { useCartContext } from "../Context/CartContext";
+import { useCarContext } from "../Context/CartContext";
 import { useEffect } from "react";
 import {
   getFirestore,
@@ -14,24 +14,24 @@ import {
 import "./ItemListContainer.css";
 
 export default function ItemListContainer({ title }) {
-  const { loading, setProductos, setLoading } = useCartContext();
+  const { carga, enProductos, enCarga } = useCarContext();
   const { categoria } = useParams();
 
   // Obtengo TODOS los producto
   useEffect(() => {
     const db = getFirestore();
 
-    const filtroProductos = categoria
-      ? query(collection(db, "Items"), where("cat", "==", categoria || ""))
+    const obtenerProductos = categoria
+      ? query(collection(db, "Items"), where("cat", "==", categoria))
       : collection(db, "Items");
 
-    getDocs(filtroProductos)
+    getDocs(obtenerProductos)
       .then((data) =>
-        setProductos(data.docs.map((prod) => ({ id: prod.id, ...prod.data() })))
+        enProductos(data.docs.map((prod) => ({ id: prod.id, ...prod.data() })))
       )
       .catch((error) => console.log(error))
-      .finally(() => setLoading(false));
-  }, [categoria, setProductos, setLoading]);
+      .finally(() => enCarga(false));
+  }, [categoria, enProductos, enCarga]);
 
   return (
     <>
@@ -42,7 +42,7 @@ export default function ItemListContainer({ title }) {
           <h1 className="titulo">{title}</h1>
         )}
       </div>
-      {loading ? (
+      {carga ? (
         <div className="loadProd">
           <Triangle color="#1a1a40" height={100} width={100} />
         </div>

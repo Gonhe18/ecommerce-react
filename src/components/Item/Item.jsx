@@ -1,10 +1,9 @@
-import { useCartContext } from "../Context/CartContext";
+import { useCarContext } from "../Context/CartContext";
 import { Link } from "react-router-dom";
 import "./Item.css";
 
 export default function Item() {
-  const { productos } = useCartContext();
-
+  const { productos } = useCarContext();
   return (
     <>
       {productos.map((prod) => (

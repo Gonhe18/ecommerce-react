@@ -79,6 +79,8 @@ img {
 /* Contador */
 .cant-producto {
   width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 .modifProd {
   width: 100%;
@@ -92,6 +94,7 @@ img {
   display: flex;
   flex-direction: row;
   width: 70%;
+  padding: 20px 0;
 }
 .modifCant {
   width: 100%;
@@ -105,19 +108,14 @@ img {
   margin: 0;
 }
 .remove-item {
-  color: rgb(92, 90, 90);
+  color: red;
   padding: 5px;
   cursor: pointer;
-  font-size: 1rem;
-  font-family: "Roboto", sans-serif;
-  font-weight: bold;
+  font-size: 2rem;
 }
 .remove-item:hover {
-  font-weight: bold;
-  background: rgba(255, 0, 0, 0.404);
-  color: black;
+  color:rgb(211, 15, 15);
   padding: 5px;
-  border-radius: 5px;
 }
 /* Fin contador */
 
@@ -174,6 +172,30 @@ img {
 .datosCliente{
   padding:5px;
 }
-
-
 /* Fin formulario usuario */
+
+/* Carrito Vacio */
+.contenedorCarritoVacio{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.cardVacio{
+  width: 50%;
+  border-radius: 15px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:10px 0;
+  box-shadow: 2px 4px 10px 4px gray;
+}
+.cardVacio img{
+  padding: 20px 0;
+  width: 170px;
+}
+.cardVacio button{
+  margin: 20px 0;
+}
+/* Fin carrito Vacio */
