@@ -133,6 +133,8 @@ export function CartContextProvider({ children }) {
       return { id, producto, cantidad, precioUnidad };
     });
 
+    ordenDeCompra.fechaCompra = new Date()
+
     generarOrdenCompra(db, ordenDeCompra);
     actualizarStock(db, ordenDeCompra);
     enCarrito([]);
