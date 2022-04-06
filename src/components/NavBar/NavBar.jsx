@@ -16,12 +16,12 @@ export default function NavBar() {
         variant="dark"
       >
         <Container>
-        <NavLink className={({ isActive }) => "navbarTitulo"} to="/">
-          <h1>
-            Vice<span className="bandera">A</span>R
-            <span className="bandera">G</span>
-          </h1>
-        </NavLink>
+          <NavLink className={({ isActive }) => "navbarTitulo"} to="/">
+            <h1>
+              Vice<span className="bandera">A</span>R
+              <span className="bandera">G</span>
+            </h1>
+          </NavLink>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="cont">
@@ -66,8 +66,8 @@ export default function NavBar() {
                 Notebook
               </NavLink>
             </Nav>
-            <NavLink className={({ isActive }) => "carrito"} to="cart" >
-              <CartWidget/>
+            <NavLink className={({ isActive }) => "carrito"} to="cart">
+              <CartWidget />
             </NavLink>
           </Navbar.Collapse>
         </Container>
@@ -75,5 +75,3 @@ export default function NavBar() {
     </>
   );
 }
-
-// "px-4 navbarCat"

@@ -1,40 +1,43 @@
-import { useCartContext } from "./../Context/CartContext";
+import { useCarContext } from "./../Context/CartContext";
 import { useParams, Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import { BsDashLg, BsPlusLg } from "react-icons/bs";
+import { BsFillDashSquareFill, BsFillPlusSquareFill } from "react-icons/bs";
+
 import "./ItemCount.css";
 
 export default function ItemCount() {
   const {
     contador,
-    inCart,
     carrito,
-    aumentarDetail,
-    disminuirDetail,
-    addCart,
-  } = useCartContext();
+    aumentarItemDetalle,
+    disminuirItemDetalle,
+    agregarCarrito,
+  } = useCarContext();
   const { id } = useParams();
 
-  // Verifico si el producto esta en el carrito
-  const isInCart = carrito.find((prod) => prod.id === id);
+  const dentroCarrito = carrito.find((prod) => prod.id === id);
 
   return (
     <>
-      {!isInCart ? (
+      {!dentroCarrito ? (
         <>
           <div className="contador">
-            <BsDashLg
+            <BsFillDashSquareFill
               className="disminuir"
-              onClick={disminuirDetail}
+              onClick={disminuirItemDetalle}
             />
             <label className="contadorItem">{contador}</label>
-            <BsPlusLg
+            <BsFillPlusSquareFill
               className="aumentar"
-              onClick={aumentarDetail}
+              onClick={aumentarItemDetalle}
             />
           </div>
           <div className="btn-item">
-            <Button variant="outline-info" data-id={id} onClick={addCart}>
+            <Button
+              variant="outline-info"
+              data-id={id}
+              onClick={agregarCarrito}
+            >
               Agregar a carrito
             </Button>
           </div>
@@ -43,14 +46,10 @@ export default function ItemCount() {
         <>
           <div className="btn-item">
             <Link to="/cart">
-              <Button variant="outline-success" onClick={inCart}>
-                Finalizar compra
-              </Button>
+              <Button variant="outline-success">Finalizar compra</Button>
             </Link>
             <Link to="/">
-              <Button variant="outline-secondary" onClick={inCart}>
-                Seguir comprando
-              </Button>
+              <Button variant="outline-secondary">Seguir comprando</Button>
             </Link>
           </div>
         </>

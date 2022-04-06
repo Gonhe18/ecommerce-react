@@ -1,10 +1,12 @@
-import { useCartContext } from "../Context/CartContext";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { useCarContext } from "../Context/CartContext";
 import ItemCount from "./../ItemCount/ItemCount";
 
 import "./ItemDetail.css";
 
 export default function ItemDetail() {
-  const { producto } = useCartContext();
+  const { producto } = useCarContext();
 
   return (
     <>
@@ -21,7 +23,29 @@ export default function ItemDetail() {
               <div className="separador"></div>
               <div className="bloqueContador">
                 <h4>${producto.precio} </h4>
-                <ItemCount />
+                <h5>Stock:</h5>
+                {producto.stock >= 10 ? (
+                  <p style={{ color: "green" }}>{producto.stock} unidad(es)</p>
+                ) : (
+                  <>
+                    {producto.stock > 0 ? (
+                      <p style={{ color: "red" }}>
+                        Última(s) {producto.stock} unidad(es)!!
+                      </p>
+                    ) : (
+                      <p style={{ color: "red", "margin-top": "10px" }}>
+                        Sin Stock
+                      </p>
+                    )}
+                  </>
+                )}
+                {producto.stock > 0 ? (
+                  <ItemCount />
+                ) : (
+                  <Link to="/">
+                    <Button variant="outline-info">Seguir comprando</Button>
+                  </Link>
+                )}
               </div>
             </div>
           </div>

@@ -1,44 +1,50 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
+import Swal from "sweetalert2";
 
 const carritoAlmacen = JSON.parse(localStorage.getItem("carrito")) || [];
-// Creo contexto
-const CartContext = createContext();
-export const useCartContext = () => useContext(CartContext);
+
+const CarContext = createContext();
+export const useCarContext = () => useContext(CarContext);
 
 export function CartContextProvider({ children }) {
-  const [loading, setLoading] = useState(true);
-  const [contador, setContador] = useState(1);
-  const [btn, setBtn] = useState("addCart");
-  const [productos, setProductos] = useState([]);
-  const [producto, setProducto] = useState({});
-  const [carrito, setCarrito] = useState(carritoAlmacen);
+  const [carga, enCarga] = useState(true);
+  const [contador, enContador] = useState(1);
+  const [productos, enProductos] = useState([]);
+  const [producto, enProducto] = useState({});
+  const [carrito, enCarrito] = useState(carritoAlmacen);
+  const [form, enForm] = useState({ usuario: "", telefono: "", email: "" });
 
-// Actualizo localStorage
+  // Actualizo localStorage
   useEffect(() => {
-    localStorage.setItem('carrito', JSON.stringify(carrito));
+    localStorage.setItem("carrito", JSON.stringify(carrito));
   }, [carrito]);
 
-  // Aumenta cantidad productos en detail
-  const aumentarDetail = () => {
-    contador < producto.stock && setContador(contador + 1);
+  const aumentarItemDetalle = () => {
+    contador < producto.stock && enContador(contador + 1);
   };
-  // Disminuye cantidad productos en detail
-  const disminuirDetail = () => {
-    contador > 1 && setContador(contador - 1);
+
+  const disminuirItemDetalle = () => {
+    contador > 1 && enContador(contador - 1);
   };
-  // Aumenta cantidad productos en Cart
-  const aumentarCart = (e) => {
+
+  const aumentarItemCarrito = (e) => {
     const id = e.target.parentElement.id || e.target.id;
     const stockInCart = carrito.find((prod) => prod.id === id);
     if (contador <= stockInCart.stock) {
       stockInCart.cantidad += contador;
       stockInCart.stock -= contador;
     }
-    setCarrito([...carrito]);
+    enCarrito([...carrito]);
   };
-  // Disminuye cantidad productos en Cart
-  const disminuirCart = (e) => {
+
+  const disminuirItemCarrito = (e) => {
     const id = e.target.parentElement.id || e.target.id;
     const stockInCart = carrito.find((prod) => prod.id === id);
     if (stockInCart.cantidad > 1) {
@@ -49,71 +55,116 @@ export function CartContextProvider({ children }) {
         if (carrito[i].id === id) carrito.splice(i, 1);
       }
     }
-    setCarrito([...carrito]);
+    enCarrito([...carrito]);
+    if (carrito.length === 0) {
+    }
   };
-  // Agrego productos al carrito
-  const addCart = () => {
-    setBtn("inCart");
-    setCarrito([
+
+  const agregarCarrito = () => {
+    enCarrito([
       ...carrito,
       { ...producto, stock: producto.stock - contador, cantidad: contador },
     ]);
-    setContador(1);
+    enContador(1);
   };
-  // Almaceno total de productos agregados al carrito
+
   const cantTotalProd = () => {
     const cantProd = carrito.map((prod) => prod.cantidad);
     return cantProd.reduce((acc, item) => acc + item, 0);
   };
-  // Limpiar carrito
+
   const limpiarCarrito = () => {
-    setCarrito([]);
+    enCarrito([]);
   };
-  // Remover items
-  const removerItems = (e) => {
+
+  const removerItem = (e) => {
     const idProd = e.target.parentElement.id || e.target.id;
     for (let i = carrito.length - 1; i >= 0; --i) {
       if (carrito[i].id === idProd) carrito.splice(i, 1);
     }
-    setCarrito([...carrito]);
+    enCarrito([...carrito]);
   };
-  // Modifica vista btn en detalle productos
-  const inCart = () => {
-    setBtn("addCart");
-  };
-  // Obtengo el saldo total del cart
-  const totalPrecioCart = () => {
+
+  const totalPrecioCarrito = () => {
     const totalPrecio = carrito.map((prod) => prod.precio);
     return totalPrecio.reduce((acc, item) => acc + item, 0);
   };
 
+  const generarOrdenCompra = (db, orden) => {
+    const obtenerColeccion = collection(db, "ordenCompra");
+    addDoc(obtenerColeccion, orden).then(({ id }) =>
+      Swal.fire({
+        title: "Compra exitosa!",
+        html: `N° de orden <br> <b>${id}</b>`,
+        confirmButtonText: "Volver al home",
+        icon: "success",
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+      }).then(function () {
+        window.location = "./index.html";
+      })
+    );
+  };
+
+  const actualizarStock = (db, orden) => {
+    const idProd = orden.items.map((prod) => prod.id);
+    idProd.forEach((id) => {
+      const stockProd = carrito.find((prod) => prod.id === id);
+      const actualizarStock = doc(db, "Items", id);
+      updateDoc(actualizarStock, { stock: stockProd.stock });
+    });
+  };
+
+  const finalizarCompra = (e) => {
+    e.preventDefault();
+    const db = getFirestore();
+
+    let ordenDeCompra = {};
+
+    ordenDeCompra.usuario = form;
+
+    ordenDeCompra.saldoTotal = cantTotalProd() * totalPrecioCarrito();
+
+    ordenDeCompra.items = carrito.map((prod) => {
+      const id = prod.id;
+      const producto = `${prod.marca} ${prod.modelo}`;
+      const cantidad = prod.cantidad;
+      const precioUnidad = prod.precio;
+      return { id, producto, cantidad, precioUnidad };
+    });
+
+    generarOrdenCompra(db, ordenDeCompra);
+    actualizarStock(db, ordenDeCompra);
+    enCarrito([]);
+  };
+
   return (
-    <CartContext.Provider
+    <CarContext.Provider
       value={{
         carrito,
-        setProductos,
+        enProductos,
         productos,
-        setProducto,
+        enProducto,
         producto,
-        setLoading,
-        loading,
-        setBtn,
-        btn,
-        setContador,
+        enCarga,
+        carga,
+        enContador,
         contador,
+        enForm,
+        form,
         cantTotalProd,
         limpiarCarrito,
-        removerItems,
-        aumentarDetail,
-        disminuirDetail,
-        addCart,
-        inCart,
-        aumentarCart,
-        disminuirCart,
-        totalPrecioCart,
+        removerItem,
+        aumentarItemDetalle,
+        disminuirItemDetalle,
+        agregarCarrito,
+        aumentarItemCarrito,
+        disminuirItemCarrito,
+        totalPrecioCarrito,
+        finalizarCompra,
       }}
     >
       {children}
-    </CartContext.Provider>
+    </CarContext.Provider>
   );
 }

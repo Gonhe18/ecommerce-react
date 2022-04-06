@@ -39,7 +39,7 @@
 }
 .bloqueContenedor .titContenedor {
   width: 75%;
-  height: 40%;
+  /* height: 40%; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,11 +48,17 @@
   font-weight: bold;
   font-family: "Ramaraja", serif;
   letter-spacing: 0.5rem;
-  margin-top: 10px;
+  margin-top: 50px;
+}
+.bloqueContador p{
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 .separador {
   width: 70%;
   border-bottom: 1px solid #000;
+  margin: 20px 0;
 }
 .bloqueContador {
   width: 100%;
@@ -65,7 +71,6 @@
 
 .bloqueContador h4 {
   font-size: 2.5rem;
-  margin: 20px 0;
   font-family: "Syne Mono", monospace;
 }
 .bloqueDescripcion {
@@ -82,6 +87,9 @@
 }
 .bloqueDescripcion li {
   margin-left: 35px;
+}
+.bloqueContador button{
+  margin-top:20px;
 }
 
 @media screen and (max-width: 992px){

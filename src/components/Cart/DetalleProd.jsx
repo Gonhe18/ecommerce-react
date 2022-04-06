@@ -1,12 +1,15 @@
-import { useCartContext } from "../Context/CartContext";
-import { BsDashLg } from "react-icons/bs";
-import { BsPlusLg } from "react-icons/bs";
+import { useCarContext } from "../Context/CartContext";
+import {
+  BsFillDashSquareFill,
+  BsFillPlusSquareFill,
+  BsFillXCircleFill,
+} from "react-icons/bs";
 
 import "./Cart.css";
 
 const DetalleProd = () => {
-  const { carrito, removerItems, aumentarCart, disminuirCart } =
-    useCartContext();
+  const { carrito, removerItem, aumentarItemCarrito, disminuirItemCarrito } =
+    useCarContext();
   return (
     <>
       {carrito.map((prod) => (
@@ -22,29 +25,32 @@ const DetalleProd = () => {
             <div className="modifProd">
               <div className="contadorCart">
                 <div className="modifCant">
-                  <BsDashLg
+                  <BsFillDashSquareFill
                     className="disminuir"
                     id={prod.id}
-                    onClick={disminuirCart}
+                    onClick={disminuirItemCarrito}
                   />
                 </div>
                 <p className="cant-item">{prod.cantidad}</p>
                 <div className="modifCant">
-                  <BsPlusLg
-                    className="aumentar"
+                  <BsFillPlusSquareFill
+                    className="aumentar "
                     id={prod.id}
-                    onClick={aumentarCart}
+                    onClick={aumentarItemCarrito}
                   />
                 </div>
               </div>
-              <span className="remove-item" id={prod.id} onClick={removerItems}>
-                Remove
-              </span>
+              <div className="saldoParcial">
+                <h4 className="precio">Importe </h4>
+                <h4 className="precio">${prod.precio * prod.cantidad}</h4>
+              </div>
             </div>
-            <div className="saldoParcial">
-              <h4 className="precio">Importe </h4>
-              <h4 className="precio">${prod.precio * prod.cantidad}</h4>
-            </div>
+            <BsFillXCircleFill
+              className="remove-item"
+              id={prod.id}
+              onClick={removerItem}
+              title="Eliminar item"
+            />
           </div>
         </div>
       ))}
