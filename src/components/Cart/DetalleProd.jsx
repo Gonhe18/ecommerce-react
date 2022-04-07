@@ -45,13 +45,15 @@ const DetalleProd = () => {
                 <h4 className="precio">${prod.precio * prod.cantidad}</h4>
               </div>
             </div>
-            <BsFillXCircleFill
-              className="remove-item"
-              id={prod.id}
-              onClick={removerItem}
-              title="Eliminar item"
-            />
           </div>
+        <div className="contenedorRemoverItem">
+          <BsFillXCircleFill
+            className="remove-item"
+            id={prod.id}
+            onClick={removerItem}
+            title="Eliminar item"
+          />
+        </div>
         </div>
       ))}
     </>

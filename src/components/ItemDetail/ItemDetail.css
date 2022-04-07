@@ -48,7 +48,7 @@
   font-weight: bold;
   font-family: "Ramaraja", serif;
   letter-spacing: 0.5rem;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 .bloqueContador p{
   font-family: "Roboto", sans-serif;
@@ -89,10 +89,10 @@
   margin-left: 35px;
 }
 .bloqueContador button{
-  margin-top:20px;
+  margin:10px 0 20px 0;
 }
 
-@media screen and (max-width: 992px){
+@media screen and (max-width: 892px){
   .cardItem {
     height: 100%;
     flex-direction: column;

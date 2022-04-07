@@ -12,7 +12,7 @@ const FormUser = () => {
   };
   return (
     <>
-      <Form className="form-control" onSubmit={finalizarCompra}>
+      <Form className="form-control p-4" onSubmit={finalizarCompra}>
         <label className="mb-2" htmlFor="nombreUsuario">
           Usuario
         </label>
@@ -27,7 +27,7 @@ const FormUser = () => {
           autoComplete="off"
           required
         />
-        <label className="mb-2" htmlFor="telefonoUsuario">
+        <label className="my-2" htmlFor="telefonoUsuario">
           Teléfono
         </label>
         <input
@@ -41,7 +41,7 @@ const FormUser = () => {
           autoComplete="off"
           required
         />
-        <label className="mb-2" htmlFor="emailUsuario">
+        <label className="my-2" htmlFor="emailUsuario">
           Email
         </label>
         <input
@@ -55,7 +55,7 @@ const FormUser = () => {
           autoComplete="off"
           required
         />
-        <Button variant="outline-success" type="submit" className="w-50">
+        <Button variant="outline-success" type="submit" className="w-50 mt-3">
           Generar orden
         </Button>
       </Form>

@@ -33,7 +33,7 @@ export default function ItemDetail() {
                         Última(s) {producto.stock} unidad(es)!!
                       </p>
                     ) : (
-                      <p style={{ color: "red", "margin-top": "10px" }}>
+                      <p style={{ color: "red", "marginTop": "10px" }}>
                         Sin Stock
                       </p>
                     )}
