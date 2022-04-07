@@ -17,44 +17,46 @@ const Cart = memo(({ title }) => {
         {carrito.length >= 1 ? (
           <>
             <h2>{title}</h2>
-            <section className="detalle">
-              <div className="titulo-detalle">
-                <h3>Productos</h3>
-                <h3>Datos cliente</h3>
-              </div>
-              <div className="datosCarrito">
-                <div className="detalleCompra">
-                  <DetalleProd />
-                  <div className="contendorDetalle">
-                    <div className="encabezadoFinal">
-                      <div> </div>
-                      <h3 className="totalItem">Cantidad</h3>
-                      <h3 className="totalPrecio">Saldo</h3>
+            <div className="contenedorCarrito">
+              <section className="detalle">
+                <div className="titulo-detalle">
+                  <h3>Productos</h3>
+                </div>
+                <div className="datosCarrito">
+                  <div className="detalleCompra">
+                    <DetalleProd />
+                    <div className="contendorDetalle">
+                      <div className="encabezadoFinal">
+                        <div> </div>
+                        <h3 className="totalItem">Cantidad</h3>
+                        <h3 className="totalPrecio">Saldo</h3>
+                      </div>
+                      <div className="detalleCart">
+                        <h3 className="totalGral">TOTAL</h3>
+                        <h3 className="cantTotal">{cantTotalProd()}</h3>
+                        <h3 className="saldoTotal">
+                          ${cantTotalProd() * totalPrecioCarrito()}
+                        </h3>
+                      </div>
                     </div>
-                    <div className="detalleCart">
-                      <h3 className="totalGral">TOTAL</h3>
-                      <h3 className="cantTotal">{cantTotalProd()}</h3>
-                      <h3 className="saldoTotal">
-                        ${cantTotalProd() * totalPrecioCarrito()}
-                      </h3>
-                    </div>
+                    <Button
+                      variant="outline-primary"
+                      className="btnClean"
+                      onClick={limpiarCarrito}
+                    >
+                      Vaciar carrito
+                    </Button>
                   </div>
-                  <Button
-                    variant="outline-primary"
-                    className="btnClean"
-                    onClick={limpiarCarrito}
-                  >
-                    Vaciar carrito
-                  </Button>
                 </div>
-                <div className="datosCliente">
-                  <FormUser />
-                </div>
-              </div>
-            </section>
+              </section>
+              <section className="datosCliente">
+                <h3>Datos cliente</h3>
+                <FormUser />
+              </section>
+            </div>
           </>
         ) : (
-          <div className="contenedorCarritoVacio">
+          <>
             <h2>Carrito vacio</h2>
             <div className="cardVacio">
               <img src="./img/sin-items.ico" alt="Icono carrito vacio" />
@@ -62,7 +64,7 @@ const Cart = memo(({ title }) => {
                 <Button variant="outline-secondary">Seguir Comprando</Button>
               </Link>
             </div>
-          </div>
+          </>
         )}
       </div>
     </>

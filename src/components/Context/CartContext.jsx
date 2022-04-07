@@ -36,28 +36,26 @@ export function CartContextProvider({ children }) {
 
   const aumentarItemCarrito = (e) => {
     const id = e.target.parentElement.id || e.target.id;
-    const stockInCart = carrito.find((prod) => prod.id === id);
-    if (contador <= stockInCart.stock) {
-      stockInCart.cantidad += contador;
-      stockInCart.stock -= contador;
+    const stockCarrito = carrito.find((prod) => prod.id === id);
+    if (contador <= stockCarrito.stock) {
+      stockCarrito.cantidad += contador;
+      stockCarrito.stock -= contador;
     }
     enCarrito([...carrito]);
   };
 
   const disminuirItemCarrito = (e) => {
     const id = e.target.parentElement.id || e.target.id;
-    const stockInCart = carrito.find((prod) => prod.id === id);
-    if (stockInCart.cantidad > 1) {
-      stockInCart.cantidad -= contador;
-      stockInCart.stock += contador;
+    const stockCarrito = carrito.find((prod) => prod.id === id);
+    if (stockCarrito.cantidad > 1) {
+      stockCarrito.cantidad -= contador;
+      stockCarrito.stock += contador;
     } else {
       for (let i = carrito.length - 1; i >= 0; --i) {
         if (carrito[i].id === id) carrito.splice(i, 1);
       }
     }
     enCarrito([...carrito]);
-    if (carrito.length === 0) {
-    }
   };
 
   const agregarCarrito = () => {
@@ -133,7 +131,7 @@ export function CartContextProvider({ children }) {
       return { id, producto, cantidad, precioUnidad };
     });
 
-    ordenDeCompra.fechaCompra = new Date()
+    ordenDeCompra.fechaCompra = new Date();
 
     generarOrdenCompra(db, ordenDeCompra);
     actualizarStock(db, ordenDeCompra);
