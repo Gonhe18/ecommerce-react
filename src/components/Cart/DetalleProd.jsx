@@ -8,8 +8,7 @@ import {
 import "./Cart.css";
 
 const DetalleProd = () => {
-  const { carrito, removerItem, aumentarItemCarrito, disminuirItemCarrito } =
-    useCarContext();
+  const { carrito, removerItem, cantidadItemCarrito } = useCarContext();
   return (
     <>
       {carrito.map((prod) => (
@@ -28,7 +27,8 @@ const DetalleProd = () => {
                   <BsFillDashSquareFill
                     className="disminuir"
                     id={prod.id}
-                    onClick={disminuirItemCarrito}
+                    onClick={cantidadItemCarrito}
+                    data-action="disminuir"
                   />
                 </div>
                 <p className="cant-item">{prod.cantidad}</p>
@@ -36,7 +36,8 @@ const DetalleProd = () => {
                   <BsFillPlusSquareFill
                     className="aumentar "
                     id={prod.id}
-                    onClick={aumentarItemCarrito}
+                    onClick={cantidadItemCarrito}
+                    data-action="aumentar"
                   />
                 </div>
               </div>
@@ -46,14 +47,14 @@ const DetalleProd = () => {
               </div>
             </div>
           </div>
-        <div className="contenedorRemoverItem">
-          <BsFillXCircleFill
-            className="remove-item"
-            id={prod.id}
-            onClick={removerItem}
-            title="Eliminar item"
-          />
-        </div>
+          <div className="contenedorRemoverItem">
+            <BsFillXCircleFill
+              className="remove-item"
+              id={prod.id}
+              onClick={removerItem}
+              title="Eliminar item"
+            />
+          </div>
         </div>
       ))}
     </>

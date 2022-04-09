@@ -8,7 +8,7 @@ import { getFirestore, getDoc, doc } from "firebase/firestore";
 import "./ItemDetailContainer.css";
 
 export default function ItemDetailContainer({ title }) {
-  const { carga, enProducto, enCarga } = useCarContext();
+  const { carga, enProducto, enCarga, producto } = useCarContext();
   const { id } = useParams();
 
   // Obtengo producto por ID
@@ -34,7 +34,7 @@ export default function ItemDetailContainer({ title }) {
         </>
       ) : (
         <>
-          <h2 className="titulo">{}</h2>
+          <h2 className="titulo">{producto.cat}</h2>
           <ItemDetail />
         </>
       )}
