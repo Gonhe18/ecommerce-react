@@ -28,12 +28,12 @@ export default function ItemDetail() {
                   <p style={{ color: "green" }}>{producto.stock} unidad(es)</p>
                 ) : (
                   <>
-                    {producto.stock > 0 ? (
+                    {producto.stock >= 1 ? (
                       <p style={{ color: "red" }}>
-                        Última(s) {producto.stock} unidad(es)!!
+                        Solo hay {producto.stock} unidad(es)!!
                       </p>
                     ) : (
-                      <p style={{ color: "red", "marginTop": "10px" }}>
+                      <p style={{ color: "red", marginTop: "10px" }}>
                         Sin Stock
                       </p>
                     )}

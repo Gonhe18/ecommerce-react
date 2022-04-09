@@ -34,27 +34,30 @@ export function CartContextProvider({ children }) {
     contador > 1 && enContador(contador - 1);
   };
 
-  const aumentarItemCarrito = (e) => {
+  const cantidadItemCarrito = (e) => {
     const id = e.target.parentElement.id || e.target.id;
+    const accion =
+      e.target.parentElement.dataset.action || e.target.dataset.action;
     const stockCarrito = carrito.find((prod) => prod.id === id);
-    if (contador <= stockCarrito.stock) {
-      stockCarrito.cantidad += contador;
-      stockCarrito.stock -= contador;
-    }
-    enCarrito([...carrito]);
-  };
 
-  const disminuirItemCarrito = (e) => {
-    const id = e.target.parentElement.id || e.target.id;
-    const stockCarrito = carrito.find((prod) => prod.id === id);
-    if (stockCarrito.cantidad > 1) {
-      stockCarrito.cantidad -= contador;
-      stockCarrito.stock += contador;
-    } else {
-      for (let i = carrito.length - 1; i >= 0; --i) {
-        if (carrito[i].id === id) carrito.splice(i, 1);
+    if (accion === "aumentar") {
+      if (contador <= stockCarrito.stock) {
+        stockCarrito.cantidad += contador;
+        stockCarrito.stock -= contador;
       }
     }
+
+    if (accion === "disminuir") {
+      if (stockCarrito.cantidad > 1) {
+        stockCarrito.cantidad -= contador;
+        stockCarrito.stock += contador;
+      } else {
+        for (let i = carrito.length - 1; i >= 0; --i) {
+          if (carrito[i].id === id) carrito.splice(i, 1);
+        }
+      }
+    }
+
     enCarrito([...carrito]);
   };
 
@@ -158,8 +161,7 @@ export function CartContextProvider({ children }) {
         aumentarItemDetalle,
         disminuirItemDetalle,
         agregarCarrito,
-        aumentarItemCarrito,
-        disminuirItemCarrito,
+        cantidadItemCarrito,
         totalPrecioCarrito,
         finalizarCompra,
       }}
