@@ -1,7 +1,10 @@
 # **E-Commerce Con Reactjs 🛒 - CoderHouse**
 
 Sitio web creado como parte del proyecto final para el curso de Desarrollador Frontend React, de CoderHouse. Utilizando las herramientas aprendidas durante la cursada.
-El sitio puede dividirse en 4 secciones:
+
+Visita el sitio: [E-commerce](https://ecommerce-react-gonzalobazzani.netlify.app/ "E-commerce")
+
+El mismo puede dividirse en 4 secciones:
 
 1.  **MENÚ DE NAVEGACIÓN:**
 	A su vez se divide en 3 secciones bien marcadas:
@@ -23,8 +26,14 @@ El sitio puede dividirse en 4 secciones:
 
 ## **DEPENDENCIAS**
 Durante el proceso de creación del sitio web utilicé algunas dependencias que me permitieron darle una mejor estética al proyecto.
-- **BOOTSTRAP:** Permite darle estilos a todo el sitio.
-- **REACT-ICONS:** Brinda el acceso a librerías con iconos y así poder agregarlos a nuestra web. Ej: icono del carrito en el NavBar.
-- **REACT-LOADER-SPINNER:** Da acceso a varios modelos de spinner, los cuales son útiles en los casos en donde exista una demora en la esperar de resultados. Ej: simulación de espera de los datos de la API.
-- **SWEETALERT2:** Permite crear alertas mas vistosas para nuestro poryecto.
-- **FIREBASE:** Aplicación de Google que nos permite utilizarla como base de dato y almacenar y consumir nuestra API de productos.
+- **REACTJS `v17.0.2` :** Librería de Js.
+
+- **BOOTSTRAP `v5.1.3` :** Permite darle estilos a todo el sitio.
+
+- **REACT-ICONS `v4.3.1` :** Brinda el acceso a librerías con iconos y así poder agregarlos a nuestra web. Ej: icono del carrito en el NavBar.
+
+- **REACT-LOADER-SPINNER `v6.0.0-0` :** Da acceso a varios modelos de spinner, los cuales son útiles en los casos en donde exista una demora en la esperar de resultados. Ej: simulación de espera de los datos de la API.
+
+- **SWEETALERT2 `v11.4.7` :** Permite crear alertas mas vistosas para nuestro poryecto.
+
+- **FIREBASE `v9.6.10` :** Aplicación de Google que nos permite utilizarla como base de dato, para almacenar y consumir nuestra API de productos.
