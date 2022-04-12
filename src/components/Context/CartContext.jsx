@@ -7,6 +7,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import Swal from "sweetalert2";
+import { fecha } from "./../../helpers/fecha";
 
 const carritoAlmacen = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -19,7 +20,11 @@ export function CartContextProvider({ children }) {
   const [productos, enProductos] = useState([]);
   const [producto, enProducto] = useState({});
   const [carrito, enCarrito] = useState(carritoAlmacen);
-  const [form, enForm] = useState({ usuario: "", telefono: "", email: "" });
+  const [datosUsuario, enDatosUsuario] = useState({
+    usuario: "",
+    telefono: "",
+    email: "",
+  });
 
   // Actualizo localStorage
   useEffect(() => {
@@ -122,7 +127,7 @@ export function CartContextProvider({ children }) {
 
     let ordenDeCompra = {};
 
-    ordenDeCompra.usuario = form;
+    ordenDeCompra.usuario = datosUsuario;
 
     ordenDeCompra.saldoTotal = cantTotalProd() * totalPrecioCarrito();
 
@@ -134,7 +139,7 @@ export function CartContextProvider({ children }) {
       return { id, producto, cantidad, precioUnidad };
     });
 
-    ordenDeCompra.fechaCompra = new Date();
+    ordenDeCompra.fechaCompra = fecha();
 
     generarOrdenCompra(db, ordenDeCompra);
     actualizarStock(db, ordenDeCompra);
@@ -153,8 +158,8 @@ export function CartContextProvider({ children }) {
         carga,
         enContador,
         contador,
-        enForm,
-        form,
+        datosUsuario,
+        enDatosUsuario,
         cantTotalProd,
         limpiarCarrito,
         removerItem,

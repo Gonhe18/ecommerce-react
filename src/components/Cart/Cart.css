@@ -191,6 +191,11 @@ img {
   margin: 20px 0;
 }
 /* Fin carrito Vacio */
+.labelError{
+  color: red;
+  font-weight:bold;
+  
+}
 
 @media screen and (max-width: 820px) {
   .pago h2 {
