@@ -20,11 +20,7 @@ export function CartContextProvider({ children }) {
   const [productos, enProductos] = useState([]);
   const [producto, enProducto] = useState({});
   const [carrito, enCarrito] = useState(carritoAlmacen);
-  const [datosUsuario, enDatosUsuario] = useState({
-    usuario: "",
-    telefono: "",
-    email: "",
-  });
+  const [datosUsuario, enDatosUsuario] = useState({});
 
   // Actualizo localStorage
   useEffect(() => {
@@ -121,8 +117,7 @@ export function CartContextProvider({ children }) {
     });
   };
 
-  const finalizarCompra = (e) => {
-    e.preventDefault();
+  const finalizarCompra = () => {
     const db = getFirestore();
 
     let ordenDeCompra = {};
@@ -158,8 +153,8 @@ export function CartContextProvider({ children }) {
         carga,
         enContador,
         contador,
-        datosUsuario,
         enDatosUsuario,
+        datosUsuario,
         cantTotalProd,
         limpiarCarrito,
         removerItem,

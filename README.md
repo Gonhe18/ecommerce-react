@@ -30,10 +30,12 @@ Durante el proceso de creación del sitio web utilicé algunas dependencias que 
 
 - **BOOTSTRAP `v5.1.3` :** Permite darle estilos a todo el sitio.
 
-- **REACT-ICONS `v4.3.1` :** Brinda el acceso a librerías con iconos y así poder agregarlos a nuestra web. Ej: icono del carrito en el NavBar.
+- **REACT ICONS `v4.3.1` :** Brinda el acceso a librerías con iconos y así poder agregarlos a nuestra web. Ej: icono del carrito en el NavBar.
 
-- **REACT-LOADER-SPINNER `v6.0.0-0` :** Da acceso a varios modelos de spinner, los cuales son útiles en los casos en donde exista una demora en la esperar de resultados. Ej: simulación de espera de los datos de la API.
+- **REACT LOADER SPINNER `v6.0.0-0` :** Da acceso a varios modelos de spinner, los cuales son útiles en los casos en donde exista una demora en la esperar de resultados. Ej: simulación de espera de los datos de la API.
 
 - **SWEETALERT2 `v11.4.7` :** Permite crear alertas mas vistosas para nuestro poryecto.
 
 - **FIREBASE `v9.6.10` :** Aplicación de Google que nos permite utilizarla como base de dato, para almacenar y consumir nuestra API de productos.
+
+- **REACT HOOK FORM `v7.29.0` :** Librería que nos permite gestionar validaciones en nuestros formularios.
