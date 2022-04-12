@@ -1,35 +1,35 @@
-import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useCarContext } from "./../Context/CartContext";
+import { useForm } from "react-hook-form";
 
 import "./Cart.css";
 
 const FormUser = () => {
-  const { finalizarCompra, enDatosUsuario } = useCarContext();
-  const [form, enForm] = useState({
-    usuario: "",
-    telefono: "",
-    email: "",
-    validacionEmail: "",
-  });
+  const { enDatosUsuario } = useCarContext();
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    getValues,
+  } = useForm();
 
-  const actualizarForm = (e) => {
-    enForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const datosUsuarioCompra = () => {
+  const actualizarForm = (data, e) => {
     enDatosUsuario({
-      usuario: form.usuario,
-      telefono: form.telefono,
-      email: form.email,
+      usuario: data.usuario,
+      telefono: data.telefono,
+      email: data.email,
     });
+    e.target.reset();
   };
 
   return (
     <>
-      <Form className="form-control p-4" onSubmit={finalizarCompra}>
-        <label className="mb-2" htmlFor="nombreUsuario">
+      <Form
+        className="form-control p-4"
+        onSubmit={handleSubmit(actualizarForm)}
+      >
+        <label className="mb-2 w-100" htmlFor="nombreUsuario">
           Usuario
         </label>
         <input
@@ -37,13 +37,21 @@ const FormUser = () => {
           id="nombreUsuario"
           type="text"
           placeholder="Ingrese su nombre"
-          name="usuario"
-          value={form.usuario}
-          onChange={actualizarForm}
           autoComplete="off"
-          required
+          {...register("usuario", {
+            required: {
+              value: true,
+              message: "Usuario requerido",
+            },
+            minLength: {
+              value: 3,
+              message: "Mínimo 3 carácteres",
+            },
+          })}
         />
-        <label className="my-2" htmlFor="telefonoUsuario">
+        <span className="colorError mb-2">{errors?.usuario?.message}</span>
+
+        <label className="my-2 w-100" htmlFor="telefonoUsuario">
           Teléfono
         </label>
         <input
@@ -51,13 +59,21 @@ const FormUser = () => {
           id="telefonoUsuario"
           type="number"
           placeholder="Ingrese su n° de teléfono"
-          name="telefono"
-          value={form.telefono}
-          onChange={actualizarForm}
           autoComplete="off"
-          required
+          {...register("telefono", {
+            required: {
+              value: true,
+              message: "Teléfono es requerido",
+            },
+            minLength: {
+              value: 10,
+              message: "Mínimo 10 dígitos",
+            },
+          })}
         />
-        <label className="my-2" htmlFor="emailUsuario">
+        <span className="colorError mb-2">{errors?.telefono?.message}</span>
+
+        <label className="my-2 w-100" htmlFor="emailUsuario">
           Email
         </label>
         <input
@@ -65,43 +81,49 @@ const FormUser = () => {
           id="emailUsuario"
           type="email"
           placeholder="ejemplo@mail.com"
-          name="email"
-          value={form.email}
-          onChange={actualizarForm}
-          autoComplete="off"
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-          required
+          {...register("email", {
+            required: {
+              value: true,
+              message: "Email requerido",
+            },
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+              message: "Formato de email incorrecto",
+            },
+          })}
         />
-        <label className="my-2" htmlFor="validacionEmail">
-          Confirma tu Email
+        <span className="colorError mb-2">{errors?.email?.message}</span>
+
+        <label className="my-2 w-100" htmlFor="validacionEmail">
+          Confirma email
         </label>
         <input
           className="form-control mb-2"
           id="validacionEmail"
           type="email"
           placeholder="Reingrese su email"
-          name="validacionEmail"
-          value={form.validacionEmail}
-          onChange={actualizarForm}
-          autoComplete="off"
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-          required
+          {...register("validacionEmail", {
+            required: {
+              value: true,
+              message: "Confirmación de email requerida",
+            },
+            validate: {
+              confirmar: (value) =>
+                value === getValues("email") ||
+                "Los emails ingresados no coinciden",
+            },
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+              message: "Formato de email incorrecto",
+            },
+          })}
         />
-
-        {form.email !== form.validacionEmail ? (
-          <label className="my-2 labelError">
-            Los emails ingresados con coinciden
-          </label>
-        ) : (
-          <Button
-            variant="outline-success"
-            type="submit"
-            className="w-50 mt-3"
-            onClick={datosUsuarioCompra}
-          >
-            Generar orden
-          </Button>
-        )}
+        <span className="colorError mb-2">
+          {errors?.validacionEmail?.message}
+        </span>
+        <Button variant="outline-success" type="submit" className="w-100 mt-3">
+          Validar datos
+        </Button>
       </Form>
     </>
   );

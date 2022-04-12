@@ -8,8 +8,14 @@ import { Link } from "react-router-dom";
 import "./Cart.css";
 
 const Cart = memo(({ title }) => {
-  const { carrito, limpiarCarrito, cantTotalProd, totalPrecioCarrito } =
-    useCarContext();
+  const {
+    carrito,
+    limpiarCarrito,
+    cantTotalProd,
+    totalPrecioCarrito,
+    datosUsuario,
+    finalizarCompra,
+  } = useCarContext();
 
   return (
     <>
@@ -51,7 +57,23 @@ const Cart = memo(({ title }) => {
               </section>
               <section className="datosCliente">
                 <h3>Datos cliente</h3>
-                <FormUser />
+                {Object.keys(datosUsuario).length === 0 ? (
+                  <FormUser />
+                ) : (
+                  <section className="form-control generarOrden">
+                    <h4>Validación correcta</h4>
+                    <span className="validacionCorrecta">
+                      Para finalizar el pedido genere la orden de compra
+                    </span>
+                    <Button
+                      variant="outline-success"
+                      className="w-100"
+                      onClick={finalizarCompra}
+                    >
+                      Generar orden
+                    </Button>
+                  </section>
+                )}
               </section>
             </div>
           </>
