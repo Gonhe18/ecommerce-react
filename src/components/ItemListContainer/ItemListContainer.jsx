@@ -19,6 +19,7 @@ export default function ItemListContainer({ title }) {
 
   // Obtengo TODOS los producto
   useEffect(() => {
+    enCarga(true);
     const db = getFirestore();
 
     const obtenerProductos = categoria

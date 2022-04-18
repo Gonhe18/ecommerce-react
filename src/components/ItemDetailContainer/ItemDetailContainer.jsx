@@ -10,9 +10,9 @@ import "./ItemDetailContainer.css";
 export default function ItemDetailContainer({ title }) {
   const { carga, enProducto, enCarga, producto } = useCarContext();
   const { id } = useParams();
-
   // Obtengo producto por ID
   useEffect(() => {
+    enCarga(true);
     const db = getFirestore();
     const prodId = doc(db, "Items", id);
     getDoc(prodId)
